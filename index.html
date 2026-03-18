@@ -1289,9 +1289,9 @@ if(cur){
   
   document.addEventListener('mouseleave', () => cur.classList.remove('visible'));
   document.addEventListener('mouseenter', () => {
-    if(hasMoved) cur.classList.add('visible');
-  });
-  
+    hasMoved = false;
+    cur.classList.remove('visible');
+});  
   document.querySelectorAll('a,button,.pc,.bento-card').forEach(el => {
     el.addEventListener('mouseenter', () => cur.classList.add('big'));
     el.addEventListener('mouseleave', () => cur.classList.remove('big'));
