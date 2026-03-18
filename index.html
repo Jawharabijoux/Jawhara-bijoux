@@ -1276,23 +1276,27 @@ if(localStorage.getItem('cookies')) document.getElementById('cookieBanner').styl
 // ── CURSEUR ──
 const cur = document.getElementById('cursor');
 if(cur){
-  // Positionner au centre dès le chargement et rendre visible
-  cur.style.left = (window.innerWidth/2) + 'px';
-  cur.style.top  = (window.innerHeight/2) + 'px';
-  cur.classList.add('visible');
+  let hasMoved = false;
+  
   document.addEventListener('mousemove', e => {
     cur.style.left = e.clientX + 'px';
     cur.style.top  = e.clientY + 'px';
-    cur.classList.add('visible');
+    if(!hasMoved){
+      hasMoved = true;
+      cur.classList.add('visible');
+    }
   });
+  
   document.addEventListener('mouseleave', () => cur.classList.remove('visible'));
-  document.addEventListener('mouseenter', () => cur.classList.add('visible'));
+  document.addEventListener('mouseenter', () => {
+    if(hasMoved) cur.classList.add('visible');
+  });
+  
   document.querySelectorAll('a,button,.pc,.bento-card').forEach(el => {
     el.addEventListener('mouseenter', () => cur.classList.add('big'));
     el.addEventListener('mouseleave', () => cur.classList.remove('big'));
   });
 }
-
 // ── PAGES NAV ──
 const pages = {
   collections: 'pageCollections',
