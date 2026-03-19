@@ -104,8 +104,9 @@ nav {
 }
 /* Petit trait bordeaux sous nav */
 nav::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--pink-m),var(--cobalt),var(--yellow),var(--turq),var(--pink-m)); }
-.logo { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; letter-spacing:.12em; color:var(--black); text-decoration:none; display:flex; align-items:center; gap:.4rem; }
-.logo-star { color:var(--pink); font-size:1rem; }
+.logo { font-family:'Cormorant Garamond',serif; font-size:1.55rem; letter-spacing:.28em; font-weight:300; color:var(--black); text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:3px; line-height:1; }
+.logo::after { content:'— bijoux —'; font-family:'DM Sans',sans-serif; font-size:.45rem; letter-spacing:.45em; font-weight:500; color:var(--mid); border-top:1px solid var(--pink); padding-top:3px; width:100%; text-align:center; }
+.logo-star { display:none; }
 .nav-links { display:flex; gap:2.8rem; list-style:none; }
 .nav-links a { font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--black); opacity:1; text-decoration:none; font-weight:500; transition:all .2s; }
 .nav-links a:hover { color:var(--pink); }
@@ -662,7 +663,7 @@ footer > * { position:relative; z-index:1; }
 </div>
 
 <nav>
-  <a href="#top" class="logo">JĀWHARA <span class="logo-star">✦</span><span class="nav-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <a href="#top" class="logo">JĀWHARA</a> class="nav-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
   <g transform="translate(20,20)">
     <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
     <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
