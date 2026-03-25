@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr" style="cursor:none!important" data-cs="on"><meta charset="UTF-8">
+<html lang="fr" style="cursor:none!important"><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <style>
 * { cursor: none !important; }
 </style>
-<title>JĀWHARA ✦ Bijoux</title><style>[data-cs="on"] body{display:none!important}[data-cs="on"]::before{content:'';position:fixed;inset:0;background:#FFF0F7;display:flex;align-items:center;justify-content:center;z-index:9999}</style>
+<title>JĀWHARA ✦ Bijoux</title>
+<style>
+#cs{position:fixed;inset:0;background:#FFF0F7;z-index:999999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.8rem;}
+#cs-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:3.5rem;letter-spacing:16px;font-weight:300;color:#1A0818;}
+#cs-line{width:220px;height:1px;background:#FFB3D1;}
+#cs-bijoux{font-family:'DM Sans',sans-serif;font-size:0.55rem;letter-spacing:8px;font-weight:500;color:#884060;}
+#cs-msg{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.1rem;color:#884060;margin-top:1.5rem;}
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════
@@ -644,6 +651,14 @@ footer > * { position:relative; z-index:1; }
 </style>
 </head>
 <body id="top" style="cursor:none!important">
+<!-- COMING SOON — changer display:flex en display:none pour remettre en ligne -->
+<div id="cs" style="display:flex">
+  <div id="cs-logo">JĀWHARA</div>
+  <div id="cs-line"></div>
+  <div id="cs-bijoux">— bijoux —</div>
+  <div id="cs-msg">Bientôt disponible ✦ Notre boutique arrive</div>
+</div>
+
 <div class="cursor" id="cursor">
   <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
     <g transform="translate(20,20)">
@@ -949,7 +964,7 @@ footer > * { position:relative; z-index:1; }
       <div class="nl-perk">Accès prioritaire aux nouvelles collections</div>
       <div class="nl-perk">−10% offerts dès votre inscription</div>
     </div>
-    <p style="font-size:.62rem;color:rgba(255,255,255,.45);margin-top:1rem;line-height:1.7;">En vous inscrivant, vous acceptez de recevoir nos emails. Vous pouvez vous désabonner à tout moment en cliquant sur le lien de désabonnement présent dans chaque email, ou en nous contactant à <a href="mailto:contact@jawhara-bijoux.fr" style="color:rgba(255,255,255,.65);text-decoration:underline;">contact@jawhara-bijoux.fr</a>. Vos données ne seront jamais revendues. <a href="jawhara_mentions_legales.html#conf" style="color:rgba(255,255,255,.65);text-decoration:underline;">Politique de confidentialité</a></p>
+    <p style="font-size:.62rem;color:rgba(255,255,255,.45);margin-top:1rem;line-height:1.7;">En vous inscrivant, vous acceptez de recevoir nos emails. Vous pouvez vous désabonner à tout moment en cliquant sur le lien de désabonnement présent dans chaque email, ou en nous contactant à <a href="/cdn-cgi/l/email-protection#96f5f9f8e2f7f5e2d6fcf7e1fef7e4f7bbf4fffcf9e3eeb8f0e4" style="color:rgba(255,255,255,.65);text-decoration:underline;"><span class="__cf_email__" data-cfemail="ff9c90918b9e9c8bbf959e88979e8d9ed29d9695908a87d1998d">[email&#160;protected]</span></a>. Vos données ne seront jamais revendues. <a href="jawhara_mentions_legales.html#conf" style="color:rgba(255,255,255,.65);text-decoration:underline;">Politique de confidentialité</a></p>
   </div>
 </section>
 
@@ -971,7 +986,7 @@ footer > * { position:relative; z-index:1; }
     <circle cx="0" cy="0" r="3.5" fill="#C8A000"/>
   </g>
 </svg></div>
-  <div><div class="f-logo">JĀWHARA <span class="f-logo-star">✦</span></div><p class="f-desc">Une sélection de bijoux tendances, accessibles et portables. Le style à la portée de toutes.</p><p class="f-contact">✉ <a href="mailto:contact@jawhara-bijoux.fr">contact@jawhara-bijoux.fr</a></p></div>
+  <div><div class="f-logo">JĀWHARA <span class="f-logo-star">✦</span></div><p class="f-desc">Une sélection de bijoux tendances, accessibles et portables. Le style à la portée de toutes.</p><p class="f-contact">✉ <a href="/cdn-cgi/l/email-protection#0e6d61607a6f6d7a4e646f79666f7c6f236c6764617b7620687c"><span class="__cf_email__" data-cfemail="0d6e6263796c6e794d676c7a656c7f6c206f6467627875236b7f">[email&#160;protected]</span></a></p></div>
   <div class="f-col"><h5>Boutique</h5><ul><li><a href="#" onclick="openPage('collections');return false;">Collections</a></li><li><a href="#" onclick="openPage('boutique');return false;">Tous les bijoux</a></li></ul></div>
   <div class="f-col"><h5>Infos</h5><ul><li><a href="#" onclick="openPage('apropos');return false;">À propos</a></li><li><a href="#" onclick="openPage('livraison');return false;">Livraison &amp; retours</a></li><li><a href="#" onclick="openPage('tailles');return false;">Guide des tailles</a></li><li><a href="#" onclick="openPage('faq');return false;">FAQ</a></li></ul></div>
   <div class="f-col"><h5>Légal</h5><ul><li><a href="jawhara_mentions_legales.html#cgv">CGV</a></li><li><a href="jawhara_mentions_legales.html#ml">Mentions légales</a></li><li><a href="jawhara_mentions_legales.html#conf">Confidentialité</a></li></ul></div>
@@ -997,7 +1012,7 @@ footer > * { position:relative; z-index:1; }
       <div class="page-card">
         <h3>↩️ <em>RETOURS</em></h3>
         <div class="page-info-row" style="margin-top:1rem;"><div class="page-info-icon">📅</div><div class="page-info-txt"><h4>Délai de rétractation</h4><p>Vous disposez de 14 jours après réception pour retourner votre commande, sans justification.</p></div></div>
-        <div class="page-info-row"><div class="page-info-icon">✉️</div><div class="page-info-txt"><h4>Comment retourner ?</h4><p>Contactez-nous à contact@jawhara-bijoux.fr avec votre numéro de commande.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">✉️</div><div class="page-info-txt"><h4>Comment retourner ?</h4><p>Contactez-nous à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="05666a6b71646671456f64726d64776428676c6f6a707d2b6377">[email&#160;protected]</a> avec votre numéro de commande.</p></div></div>
         <div class="page-info-row"><div class="page-info-icon">💳</div><div class="page-info-txt"><h4>Remboursement</h4><p>Le remboursement est effectué sous 14 jours après réception du retour.</p></div></div>
         <div class="page-info-row"><div class="page-info-icon">⚠️</div><div class="page-info-txt"><h4>Exception</h4><p>Les bijoux personnalisés ou sur mesure ne sont pas soumis au droit de rétractation.</p></div></div>
       </div>
@@ -1191,7 +1206,7 @@ footer > * { position:relative; z-index:1; }
       <div>
         <div class="page-card" style="margin-bottom:1rem;">
           <h3>NOUS <em>TROUVER</em></h3>
-          <div class="page-info-row" style="margin-top:1rem;"><div class="page-info-icon">✉️</div><div class="page-info-txt"><h4>Email</h4><p>contact@jawhara-bijoux.fr<br>Réponse sous 48h</p></div></div>
+          <div class="page-info-row" style="margin-top:1rem;"><div class="page-info-icon">✉️</div><div class="page-info-txt"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02616d6c76636176426863756a6370632f606b686d777a2c6470">[email&#160;protected]</a><br>Réponse sous 48h</p></div></div>
           <div class="page-info-row"><div class="page-info-icon">📱</div><div class="page-info-txt"><h4>TikTok</h4><p>@jawhara.bijoux</p></div></div>
         </div>
         <div class="page-card">
@@ -1268,7 +1283,7 @@ footer > * { position:relative; z-index:1; }
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── COOKIES ──
 function acceptCookies(){ localStorage.setItem('cookies','accepted'); document.getElementById('cookieBanner').style.display='none'; }
 function closeCookies(){ localStorage.setItem('cookies','refused'); document.getElementById('cookieBanner').style.display='none'; }
@@ -1528,14 +1543,7 @@ function showToast(m){
 function nlSub(e){
   e.preventDefault();
   const consent = document.getElementById('nlConsent');
-  if(consent && !consent.checked){ showToast('Veuillez accepter notre politique de confidentialité'); return; }
-  showToast('Merci ! Vous recevrez bientôt nos nouveautés ✦');
-  e.target.reset();
-}
-
-// ── TIKTOK ──
-document.querySelectorAll('.ttc').forEach(c=>{
-  c.addEventListener('click',()=>showToast('Bientôt disponible — suivez-nous @jawhara.bijoux ✦'));
+  if(consent && !consent.checked){ show('Bientôt disponible — suivez-nous @jawhara.bijoux ✦'));
 });
 
 // ── LIEN TIKTOK ──
