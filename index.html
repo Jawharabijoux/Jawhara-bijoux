@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JĀWHARA ✦ Bijoux</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   PALETTE HOMEISD DOPAMINE DECOR
+   Saumon pêche · Rouge vif · Bleu cobalt · Jaune soleil · Turquoise
+   Exactement les couleurs des photos fauteuil rayé
+   ═══════════════════════════════════════════════════ */
+:root {
+  /* ═══ BUBBLE GUM CLAIR — DOPAMINE DECOR ═══
+     Rose bubble gum clair dominant
+     Rouge vif · Bleu cobalt · Jaune · Turquoise en accents
+     Blanc cassé · Joyeux · Tendance · Pas Barbie */
+
+  --pink:     #FFB3D1;   /* bubble gum clair — doux et joyeux */
+  --pink-m:   #FF80B4;   /* bubble gum moyen */
+  --pink-d:   #E8306A;   /* bubble gum foncé pour titres/CTA */
+  --pink-p:   #FFE8F3;   /* bubble gum très pâle fond */
+  --pink-s:   #FFD0E8;   /* bubble gum pâle */
+
+  --red:      #E8001A;   /* rouge vif — accents forts */
+  --cobalt:   #1A5FD4;   /* bleu cobalt */
+  --cobalt-l: #5088F0;
+  --yellow:   #FFD020;   /* jaune soleil */
+  --yellow-d: #C8A000;
+  --turq:     #20C0B0;   /* turquoise */
+  --turq-l:   #60D8CC;
+
+  --cream:    #FFF5FA;   /* blanc cassé rose très doux */
+  --warm:     #FFF0F7;   /* fond ivoire rose */
+  --beige:    #FFE4F0;   /* rose pâle fond */
+
+  --black:    #1A0818;   /* noir chaud */
+  --dark:     #2A1028;   /* violet très foncé */
+  --mid:      #884060;   /* rose foncé textes */
+
+  /* Variables héritées — définies ici pour compatibilité */
+  --sage:     #20C0B0;   /* = turquoise */
+  --terra:    #FF80B4;   /* = bubble gum moyen */
+  --gold-l:   #FFD020;   /* = jaune */
+  --terra-p:  #FFE8F3;   /* = rose très pâle */
+}
+
+/* ── RAYURES — motif signature comme fauteuil HomeISD ── */
+:root {
+  /* Rayures horizontales légères sur fond clair */
+  --stripes-h: repeating-linear-gradient(
+    0deg, transparent, transparent 20px,
+    rgba(255,80,180,0.07) 20px, rgba(255,80,180,0.07) 22px
+  );
+  /* Rayures verticales fines */
+  --stripes-v: repeating-linear-gradient(
+    90deg, transparent, transparent 24px,
+    rgba(26,95,212,0.06) 24px, rgba(26,95,212,0.06) 26px
+  );
+  /* Rayures diagonales — sur fonds colorés (comme le fauteuil !) */
+  --stripes-d: repeating-linear-gradient(
+    45deg, transparent, transparent 12px,
+    rgba(255,255,255,0.10) 12px, rgba(255,255,255,0.10) 14px
+  );
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+html { cursor:auto; }
+body { font-family:'DM Sans',sans-serif; background:var(--warm); color:var(--black); overflow-x:hidden; }
+
+
+/* Sur mobile/tactile : curseur normal, fleur cachée */
+@media (pointer:coarse) {
+  html, body, body *:not(.cursor):not(.cursor *) { cursor:auto !important; }
+  .cursor { display:none !important; }
+}
+
+/* ── CURSEUR FLEUR ── */
+.cursor {
+  width:32px; height:32px;
+  position:fixed !important;
+  pointer-events:none !important;
+  z-index:999999 !important;
+  transform:translate(-50%,-50%);
+  transition:transform .1s ease;
+  opacity:0;
+  top:-100px; left:-100px;
+}
+.cursor.visible { opacity:1; }
+.cursor.big { transform:translate(-50%,-50%) scale(1.6); }
+
+/* ── NAV — blanc cassé, épuré ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  height:80px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 4rem;
+  background:var(--cream);
+  border-bottom:1px solid var(--pink-s);
+}
+/* Petit trait bordeaux sous nav */
+nav::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--pink-m),var(--cobalt),var(--yellow),var(--turq),var(--pink-m)); }
+.logo { font-family:'Cormorant Garamond',serif; font-size:1.55rem; letter-spacing:.28em; font-weight:300; color:var(--black); text-decoration:none; display:flex; flex-direction:column; align-items:flex-start; gap:2px; line-height:1; }
+.logo::after { content:'— bijoux —'; font-family:'DM Sans',sans-serif; font-size:.45rem; letter-spacing:.45em; font-weight:500; color:var(--mid); border-top:1px solid var(--pink); padding-top:3px; width:100%; text-align:center; }
+.logo-star { display:none; }
+.nav-flower { display:none; }
+.nav-links { display:flex; gap:2.8rem; list-style:none; }
+.nav-links a { font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--black); opacity:1; text-decoration:none; font-weight:500; transition:all .2s; }
+.nav-links a:hover { color:var(--pink); }
+.nav-login { display:flex; align-items:center; gap:.5rem; background:transparent; color:var(--black); border:1.5px solid var(--pink-s); padding:.45rem 1.2rem;  font-family:'DM Sans',sans-serif; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500; transition:all .2s; }
+.nav-login:hover { background:var(--pink-p); border-color:var(--pink-m); }
+.nav-login svg { flex-shrink:0; }
+.nav-cart { display:flex; align-items:center; gap:.55rem; background:var(--pink); color:white; border:none; padding:.5rem 1.4rem;  font-family:'DM Sans',sans-serif; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500; transition:background .2s; }
+.nav-cart:hover { background:var(--red); }
+.cn { background:var(--red); color:white; width:16px; height:16px; border-radius:50%; font-size:.52rem; display:flex; align-items:center; justify-content:center; font-weight:700; }
+
+/* ══════════════════════
+   HERO
+   ══════════════════════ */
+.hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:80px; }
+
+/* Gauche — fond rose chaud avec RAYURES DIAGONALES */
+.hero-l {
+  background:var(--pink);
+  background-image:var(--stripes-d);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:5rem 4rem 5rem 5rem;
+  position:relative; overflow:hidden;
+}
+/* Cercle blanc déco large */
+.hero-l::before { content:''; position:absolute; width:600px; height:600px; border-radius:50%; border:80px solid rgba(255,255,255,.07); top:-200px; right:-250px; }
+/* Petit cercle bordeaux */
+.hero-l::after { content:''; position:absolute; width:100px; height:100px; border-radius:50%; background:var(--red); opacity:.3; bottom:80px; left:60px; }
+.hero-l > * { position:relative; z-index:1; }
+
+/* Tag pill rouge */
+.hero-tag {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--red); color:white;
+  padding:.32rem .85rem; border-radius:100px;
+  font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; font-weight:500;
+  margin-bottom:2.2rem; width:fit-content;
+}
+.hero-tag::before { content:'✦'; font-size:.55rem; }
+
+/* Grand titre */
+.hero-h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4.5rem,9vw,8.5rem); line-height:.93; color:white; letter-spacing:.02em; margin-bottom:1.8rem; }
+.hero-h1 .outline { -webkit-text-stroke:2px white; color:transparent; }
+.hero-h1 .accent { color:var(--cream); opacity:.85; }
+
+/* Ligne rayée décorative */
+.stripe-line { display:flex; gap:3px; margin-bottom:2rem; }
+.stripe-line span { height:4px; border-radius:4px; }
+
+.hero-desc { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.15rem; color:rgba(255,255,255,.95); line-height:1.85; max-width:360px; margin-bottom:3rem; }
+.hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+
+/* BOUTONS */
+.btn-cream { display:inline-flex; align-items:center; gap:.7rem; background:var(--cream); color:var(--terra); padding:1rem 2.4rem; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; text-decoration:none; border:none;  font-family:'DM Sans',sans-serif; font-weight:700; transition:all .2s; }
+.btn-cream:hover { background:white; transform:translateY(-2px); }
+.btn-outline-cream { display:inline-flex; align-items:center; background:transparent; color:rgba(255,255,255,.8); padding:.9rem 0; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; text-decoration:none; border:none;  font-family:'DM Sans',sans-serif; border-bottom:2px solid rgba(255,255,255,.35); transition:all .2s; }
+.btn-outline-cream:hover { color:white; border-color:white; }
+.btn-pink { display:inline-flex; align-items:center; gap:.7rem; background:var(--terra); color:white; padding:1rem 2.4rem; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; text-decoration:none; border:none;  font-family:'DM Sans',sans-serif; font-weight:700; transition:all .2s; }
+.btn-pink:hover { background:var(--red); transform:translateY(-2px); }
+.btn-outline-dark { display:inline-flex; align-items:center; background:transparent; color:#5A2030; padding:.9rem 0; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; text-decoration:none; border:none;  font-family:'DM Sans',sans-serif; border-bottom:2px solid var(--terra-p); transition:all .2s; }
+.btn-outline-dark:hover { color:var(--terra); border-color:var(--terra); }
+
+/* Droite hero — CRÈME + rayures horizontales sages */
+.hero-r {
+  background:var(--warm);
+  background-image:var(--stripes-h);
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; padding:4rem 3rem;
+}
+.hero-r > * { position:relative; z-index:1; }
+
+/* Zone photo — blanc pur */
+.hero-photo { width:100%; max-width:380px; aspect-ratio:3/4; background:white; position:relative; overflow:hidden; box-shadow:0 30px 80px rgba(200,96,58,.18); }
+.hero-photo::before { content:''; position:absolute; top:0; left:0; width:0; height:0; border-style:solid; border-width:32px 32px 0 0; border-color:var(--red) transparent transparent transparent; z-index:2; }
+.hero-ph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem; }
+.hero-ph span { font-size:.5rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(28,18,8,.18); }
+.badge { position:absolute; bottom:2rem; right:-1rem; background:var(--terra); color:white; padding:.9rem 1.3rem; text-align:center; z-index:3; }
+.badge-n { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; line-height:1; letter-spacing:.05em; }
+.badge-l { font-size:.5rem; letter-spacing:.18em; text-transform:uppercase; opacity:.9; }
+
+/* ── TICKER ── */
+.ticker { overflow:hidden; padding:.7rem 0; background:var(--dark); }
+.ticker-inner { display:inline-flex; animation:tk 50s linear infinite; white-space:nowrap; will-change:transform; }
+.ti { font-size:.58rem; letter-spacing:.26em; text-transform:uppercase; color:rgba(255,255,255,.88); padding:0 3rem; font-weight:300; }
+.tg { color:var(--pink-l); font-size:.6rem; }
+@keyframes tk { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ══════════════════════
+   COLLECTIONS — fond VERT SAUGE + rayures
+   ══════════════════════ */
+.collections {
+  background:var(--cobalt);
+  background-image:var(--stripes-d);
+  padding:6rem 5rem;
+  position:relative;
+}
+.col-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; }
+.col-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,5.5rem); color:white; line-height:.9; letter-spacing:.04em; }
+.col-title .pink { color:var(--gold-l); }
+.col-title .outline { -webkit-text-stroke:2px white; color:transparent; }
+.col-desc { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:rgba(255,255,255,.92); max-width:240px; line-height:1.7; }
+
+/* Bento grid */
+.bento { display:grid; grid-template-columns:1.8fr 1fr 1fr; grid-template-rows:280px 280px; gap:5px; }
+.bento-card { position:relative; overflow:hidden;  text-decoration:none; display:block; }
+.bento-card:nth-child(1) { grid-row:span 2; }
+.bento-bg { position:absolute; inset:0; background:#DDD8C8; transition:transform .65s cubic-bezier(.25,.46,.45,.94); }
+.bento-card:hover .bento-bg { transform:scale(1.05); }
+.bento-ov { position:absolute; inset:0; background:linear-gradient(to top, rgba(28,18,8,.80) 0%, rgba(28,18,8,.04) 55%, transparent 100%); }
+.bento-border { position:absolute; inset:0; border:2.5px solid transparent; transition:border-color .3s; }
+.bento-card:hover .bento-border { border-color:var(--gold-l); }
+.bento-info { position:absolute; bottom:0; left:0; right:0; padding:1.6rem 1.8rem; }
+.bento-tag { display:inline-block; background:var(--terra); color:white; padding:.22rem .65rem; font-size:.48rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600; margin-bottom:.5rem; }
+.bento-name { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,3vw,3rem); color:white; letter-spacing:.06em; display:block; line-height:1; }
+.bento-card:nth-child(1) .bento-name { font-size:clamp(2.8rem,4.5vw,4rem); }
+.bento-count { font-size:.5rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.82); margin-top:.3rem; display:block; }
+
+/* ══════════════════════
+   BOUTIQUE — blanc pur
+   ══════════════════════ */
+.shop { padding:6rem 5rem; background:white; }
+.shop-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3.5rem; }
+.shop-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.8rem,5vw,5rem); color:var(--black); line-height:.9; letter-spacing:.04em; }
+.shop-title em { color:var(--terra); font-style:normal; }
+.p-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+.pc { background:white; border:1.5px solid var(--terra-p);  overflow:hidden; transition:transform .3s, box-shadow .3s, border-color .3s; }
+.pc:hover { transform:translateY(-7px); box-shadow:0 22px 55px rgba(200,96,58,.14); border-color:var(--terra); }
+.pc:hover .pc-cta { opacity:1; transform:translateY(0); }
+
+/* Zone photo — fond neutre */
+.pc-img { aspect-ratio:3/4; position:relative; overflow:hidden; background:#F8F2EC; }
+/* Coin triangle — alterne entre terra, sage et gold */
+.pc-img::after { content:''; position:absolute; top:0; left:0; width:0; height:0; border-style:solid; border-width:20px 20px 0 0; border-color:var(--red) transparent transparent transparent; z-index:2; }
+.pc-hint { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.4rem; }
+.pc-hint span { font-size:.5rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(28,18,8,.18); }
+.pc-cta { position:absolute; bottom:0; left:0; right:0; z-index:3; opacity:0; transform:translateY(5px); background:var(--terra); color:white; border:none; padding:.88rem; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase;  font-family:'DM Sans',sans-serif; font-weight:700; text-align:center; transition:all .3s; }
+.pc-cta:hover { background:var(--red); }
+.pc-bdg { position:absolute; top:0; right:0; z-index:4; font-size:.5rem; letter-spacing:.14em; text-transform:uppercase; padding:.28rem .7rem; font-family:'DM Sans',sans-serif; font-weight:700; }
+.bn { background:var(--red); color:white; }
+.bs { background:var(--gold); color:white; }
+.bb { background:var(--sage); color:white; }
+
+/* Info produit */
+.pc-info { padding:1.3rem 1.5rem 1.7rem; background:white; border-top:2.5px solid var(--terra-p); transition:border-top-color .25s; }
+.pc:hover .pc-info { border-top-color:var(--terra); }
+.pc-cat { font-size:.5rem; letter-spacing:.24em; text-transform:uppercase; color:var(--pink-d); font-weight:700; margin-bottom:.25rem; }
+.pc-name { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--black); margin-bottom:.3rem; }
+.pc-desc { font-size:.74rem; color:#5A2030; line-height:1.72; margin-bottom:.9rem; font-weight:300; }
+.pc-bot { display:flex; align-items:center; justify-content:space-between; }
+.pc-price { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; color:var(--black); letter-spacing:.04em; }
+.pc-price .op { font-size:.85rem; color:#C8B090; text-decoration:line-through; margin-right:.4rem; font-family:'DM Sans',sans-serif; font-weight:300; }
+.pc-plus { width:32px; height:32px; background:none; border:1.5px solid var(--pink-s); color:var(--pink-d); font-size:1.1rem;  display:flex; align-items:center; justify-content:center; transition:all .2s; border-radius:50%; }
+.pc-plus:hover { background:var(--terra); color:white; border-color:var(--terra); }
+
+/* ══════════════════════
+   STORY
+   ══════════════════════ */
+.story { display:grid; grid-template-columns:1fr 1fr; min-height:65vh; }
+
+/* Gauche — VERT SAUGE avec rayures diagonales */
+.story-vis {
+  background:var(--sage);
+  background-image:var(--stripes-d);
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; padding:4rem;
+}
+.story-vis::before { content:''; position:absolute; width:380px; height:380px; border-radius:50%; border:3px solid rgba(255,255,255,.1); top:-80px; left:-80px; }
+.story-vis > * { position:relative; z-index:1; }
+.story-mono { font-family:'Bebas Neue',sans-serif; font-size:14rem; line-height:1; color:rgba(255,255,255,.08); position:absolute; bottom:-2rem; right:-1rem; letter-spacing:.05em; user-select:none; }
+.story-circle { width:150px; height:150px; border-radius:50%; background:rgba(255,255,255,.15); border:2px solid rgba(255,255,255,.4); display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
+.story-circle-txt { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.9rem; letter-spacing:.28em; color:white; }
+
+/* Droite — fond crème rayures */
+.story-txt {
+  background:var(--cream);
+  background-image:var(--stripes-v);
+  padding:5rem 4.5rem; display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.story-txt::before { content:''; position:absolute; bottom:-80px; right:-80px; width:260px; height:260px; border-radius:50%; background:var(--sage-p); }
+.story-txt > * { position:relative; z-index:1; }
+.sc-corner { position:absolute; z-index:2; }
+.sc-tr { top:2.5rem; right:2.5rem; width:44px; height:44px; border-top:2px solid var(--pink-d); border-right:2px solid var(--pink-d); }
+.sc-bl { bottom:2.5rem; left:2.5rem; width:44px; height:44px; border-bottom:2px solid var(--red); border-left:2px solid var(--red); }
+.stag { font-size:.54rem; letter-spacing:.3em; text-transform:uppercase; color:var(--pink-d); margin-bottom:1.4rem; font-weight:600; display:flex; align-items:center; gap:.7rem; }
+.stag::before { content:'✦'; color:var(--red); }
+.story-h { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,5vw,5rem); color:var(--black); line-height:.92; letter-spacing:.04em; margin-bottom:1.5rem; }
+.story-h .pink { color:var(--pink-d); }
+.story-h .outline { -webkit-text-stroke:2px var(--terra); color:transparent; }
+.story-q { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:#3A1020; line-height:1.95; margin-bottom:2rem; padding-left:1.3rem; border-left:3px solid var(--sage); }
+.story-body { font-size:.82rem; color:#4A1828; line-height:2.1; margin-bottom:2.5rem; font-weight:300; }
+.feats { display:flex; flex-direction:column; gap:.75rem; margin-bottom:2.8rem; }
+.feat { display:flex; align-items:center; gap:.9rem; font-size:.75rem; color:var(--black); }
+.fdot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* ══════════════════════
+   VALEURS — fond OR CHAUD + rayures
+   ══════════════════════ */
+.values { padding:6rem 5rem; background:var(--gold-p); background-image:var(--stripes-h); }
+.vals-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,4.5rem); color:var(--black); margin-bottom:3rem; letter-spacing:.04em; text-align:center; }
+.vals-title em { color:var(--pink-d); font-style:normal; }
+.vals-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+.vi { padding:2.8rem 2rem; text-align:center; background:rgba(255,255,255,.88); border-top:4px solid var(--terra-p); transition:transform .3s, background .3s, border-top-color .3s; }
+.vi:hover { transform:translateY(-6px); background:white; border-top-color:var(--terra); }
+.vi-num { font-family:'Bebas Neue',sans-serif; font-size:3.8rem; color:rgba(232,48,106,.25); line-height:1; margin-bottom:.8rem; transition:color .3s; letter-spacing:.04em; }
+.vi:hover .vi-num { color:var(--terra); }
+.vi-name { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:var(--black); margin-bottom:.5rem; }
+.vi-desc { font-size:.72rem; color:#5A2030; line-height:1.85; font-weight:300; }
+
+/* ══════════════════════
+   AVIS — fond brun foncé
+   ══════════════════════ */
+.reviews { padding:6rem 5rem; background:var(--dark); }
+.reviews-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,4.5rem); color:white; margin-bottom:3rem; letter-spacing:.04em; text-align:center; }
+.reviews-title em { color:var(--terra-l); font-style:normal; }
+.rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+.rc { padding:2.5rem; background:rgba(200,96,58,.07); border:1px solid rgba(200,96,58,.18); border-top:3px solid transparent; transition:background .3s; position:relative; }
+.rc:nth-child(1) { border-top-color:var(--terra); }
+.rc:nth-child(2) { border-top-color:var(--gold); }
+.rc:nth-child(3) { border-top-color:var(--sage); }
+.rc:hover { background:rgba(200,96,58,.12); }
+.rc::before { content:'"'; position:absolute; top:.5rem; right:1.2rem; font-family:'Bebas Neue',sans-serif; font-size:6rem; color:rgba(200,96,58,.07); line-height:1; }
+.rc-stars { color:var(--gold-l); font-size:.72rem; letter-spacing:.1em; margin-bottom:1rem; }
+.rc-text { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:rgba(255,255,255,.95); line-height:1.9; margin-bottom:1.5rem; }
+.rc-auth { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.95); }
+
+/* ══════════════════════
+   TIKTOK — fond TERRACOTTA + rayures
+   ══════════════════════ */
+.tiktok { padding:6rem 5rem; background:var(--pink-d); background-image:var(--stripes-d); position:relative; overflow:hidden; }
+.tiktok::before { content:''; position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:320px; height:320px; border-radius:50%; background:rgba(255,255,255,.06); }
+.tiktok-inner { display:grid; grid-template-columns:1fr 1.3fr; gap:5rem; align-items:center; position:relative; z-index:1; }
+.tt-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,4.5rem); color:white; line-height:.92; letter-spacing:.04em; margin-bottom:1rem; }
+.tt-title em { color:var(--gold-l); font-style:normal; }
+.tt-handle { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; color:rgba(255,255,255,.95); letter-spacing:.08em; margin-bottom:1.5rem; display:block; }
+.tt-sub { font-size:.84rem; color:rgba(255,255,255,.85); line-height:2; margin-bottom:2.2rem; font-weight:300; }
+.tt-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+.ttc { aspect-ratio:9/16; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:.9rem; transition:transform .3s, box-shadow .3s; }
+/* Zone photo neutre */
+.ttc-bg { position:absolute; inset:0; background:#E8DDD0; transition:transform .5s; }
+.ttc:hover .ttc-bg { transform:scale(1.06); }
+.ttc-ov { position:absolute; inset:0; }
+.ttc:nth-child(1) .ttc-ov { background:linear-gradient(to top,var(--dark),var(--sage)); opacity:.75; }
+.ttc:nth-child(2) .ttc-ov { background:linear-gradient(to top,var(--dark),var(--gold)); opacity:.75; }
+.ttc:nth-child(3) .ttc-ov { background:linear-gradient(to top,var(--dark),var(--terra-l)); opacity:.75; }
+.ttc > *:not(.ttc-bg):not(.ttc-ov) { position:relative; z-index:1; }
+.ttc:hover { transform:translateY(-6px); box-shadow:0 14px 40px rgba(28,18,8,.25); }
+/* Coin fin coloré */
+.ttc::after { content:''; position:absolute; top:0; right:0; width:0; height:0; border-style:solid; border-width:0 18px 18px 0; border-color:transparent var(--red) transparent transparent; z-index:2; }
+.ttc-views { font-size:.5rem; color:rgba(255,255,255,.92); letter-spacing:.06em; margin-bottom:.3rem; }
+.ttc-lbl { font-size:.5rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.88); text-align:center; }
+
+/* ══════════════════════
+   NEWSLETTER — fond VERT SAUGE + rayures
+   ══════════════════════ */
+.nl {
+  padding:6rem 5rem; background:var(--turq); background-image:var(--stripes-d);
+  display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
+  position:relative; overflow:hidden;
+}
+.nl::before { content:'JĀWHARA'; font-family:'Bebas Neue',sans-serif; font-size:16rem; line-height:1; color:rgba(255,255,255,.06); position:absolute; bottom:-3rem; right:-2rem; letter-spacing:.05em; pointer-events:none; z-index:0; }
+.nl > * { position:relative; z-index:1; }
+.nl-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.8rem,5vw,5rem); color:white; line-height:.9; letter-spacing:.04em; margin-bottom:1rem; }
+.nl-title em { -webkit-text-stroke:2px white; color:transparent; font-style:normal; }
+.nl-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:rgba(255,255,255,.9); line-height:2; }
+.nl-form { display:flex; margin-bottom:1.2rem; }
+.nl-form input { flex:1; padding:1rem 1.3rem; background:rgba(255,255,255,.15); border:2px solid rgba(255,255,255,.3); border-right:none; color:white; font-family:'DM Sans',sans-serif; font-size:.78rem; outline:none; transition:border-color .3s; }
+.nl-form input:focus { border-color:rgba(255,255,255,.95); }
+.nl-form input::placeholder { color:rgba(255,255,255,.35); }
+.nl-form button { background:white; color:var(--sage); border:none; padding:1rem 1.8rem; font-size:.6rem; letter-spacing:.22em; text-transform:uppercase;  font-family:'DM Sans',sans-serif; font-weight:700; white-space:nowrap; transition:background .2s; }
+.nl-form button:hover { background:var(--cream); }
+.nl-perks { display:flex; flex-direction:column; gap:.6rem; }
+.nl-perk { display:flex; align-items:center; gap:.7rem; font-size:.74rem; color:rgba(255,255,255,.92); font-weight:300; }
+.nl-perk::before { content:'✦'; color:rgba(255,255,255,.8); font-size:.55rem; flex-shrink:0; }
+
+/* ── FOOTER ── */
+footer { padding:4rem 5rem 0; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; background:var(--black); position:relative; }
+.f-stripe { position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--terra),var(--gold),var(--sage),var(--terra-l),var(--terra)); }
+footer > * { position:relative; z-index:1; }
+.f-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:.12em; color:white; display:flex; align-items:center; gap:.4rem; margin-bottom:.6rem; padding-top:.4rem; }
+.f-logo-star { color:var(--terra-l); font-size:.9rem; }
+.f-desc { font-size:.72rem; color:rgba(255,255,255,.65); line-height:1.95; margin-bottom:1.4rem; font-weight:300; }
+.f-contact { font-size:.68rem; color:rgba(255,255,255,.6); }
+.f-col h5 { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.9rem; color:rgba(255,255,255,.95); margin-bottom:1.2rem; }
+.f-col ul { list-style:none; display:flex; flex-direction:column; gap:.65rem; }
+.f-col a { font-size:.7rem; color:rgba(255,255,255,.62); text-decoration:none; transition:color .2s; font-weight:300; }
+.f-col a:hover { color:var(--terra-l); }
+.f-bot { margin-top:3rem; padding:1.4rem 0; border-top:1px solid rgba(200,96,58,.15); display:flex; justify-content:space-between; font-size:.62rem; color:rgba(251,247,242,.14); grid-column:1/-1; }
+
+/* ── CART ── */
+.cart-ov { position:fixed; inset:0; background:rgba(28,18,8,.45); z-index:300; opacity:0; pointer-events:none; transition:opacity .35s; backdrop-filter:blur(12px); }
+.cart-ov.open { opacity:1; pointer-events:all; }
+.cart-p { position:fixed; top:0; right:0; bottom:0; width:420px; z-index:301; transform:translateX(100%); transition:transform .4s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; background:var(--cream); border-left:3px solid var(--terra); }
+.cart-ov.open .cart-p { transform:translateX(0); }
+.cst { height:3px; background:linear-gradient(90deg,var(--terra),var(--gold),var(--sage)); }
+.cart-hd { padding:1.5rem 1.6rem; border-bottom:1px solid var(--terra-p); display:flex; align-items:center; justify-content:space-between; }
+.cart-hd h3 { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--black); letter-spacing:.06em; }
+.cart-x { background:none; border:none; color:var(--mid); font-size:1.2rem;  transition:color .2s; }
+.cart-x:hover { color:var(--terra); }
+.cart-body { flex:1; overflow-y:auto; padding:1.5rem; }
+.cart-void { text-align:center; padding:3rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.95rem; color:var(--mid); }
+.ci { display:flex; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--terra-p); }
+.ci-img { width:64px; height:64px; flex-shrink:0; background:#F8F2EC; border:1px solid var(--terra-p); }
+.ci-info { flex:1; }
+.ci-name { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--black); margin-bottom:.25rem; }
+.ci-price { font-size:.72rem; color:var(--terra); font-weight:700; }
+.ci-rm { background:none; border:none; color:var(--mid);  font-size:1rem; align-self:center; transition:color .2s; }
+.ci-rm:hover { color:var(--red); }
+.cart-ft { padding:1.5rem; border-top:1px solid var(--pink-p); }
+.cart-tot { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; }
+.cart-tot span { font-size:.64rem; color:var(--mid); text-transform:uppercase; letter-spacing:.18em; }
+.cart-tot strong { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--black); letter-spacing:.04em; }
+.cart-btn { width:100%; background:var(--pink); color:white; border:none; padding:1.05rem; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase;  font-family:'DM Sans',sans-serif; font-weight:700; transition:background .2s; }
+.cart-btn:hover { background:var(--red); }
+.toast { position:fixed; bottom:2rem; right:2rem; z-index:500; background:var(--dark); color:white; padding:.95rem 1.6rem; font-size:.72rem; border-left:3px solid var(--pink); opacity:0; transform:translateY(8px); transition:all .3s; pointer-events:none; }
+.toast.show { opacity:1; transform:translateY(0); }
+
+@media(max-width:980px){
+  nav{padding:0 1.5rem;}.nav-links{display:none;}
+  .hero{grid-template-columns:1fr;}.hero-r{display:none;}
+  .hero-l{padding:4rem 2rem;}
+  .hero-h1{font-size:clamp(3.5rem,12vw,6rem);}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto;}.bento-card:nth-child(1){grid-row:auto;}
+  .p-grid{grid-template-columns:repeat(2,1fr);}
+  .story{grid-template-columns:1fr;}.story-vis{min-height:260px;}
+  .vals-grid{grid-template-columns:repeat(2,1fr);}
+  .rev-grid,.tt-cards{grid-template-columns:1fr;}
+  .tiktok-inner,.nl{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr 1fr;padding:3rem 2rem 0;}
+  .collections,.shop,.values,.reviews,.tiktok,.nl{padding:4rem 1.5rem;}
+  .story-txt{padding:4rem 2rem;}
+  .cart-p{width:100%;}
+  /* Pages overlay */
+  .page-ov-nav{padding:1rem 1.5rem;}
+  .page-ov-body{padding:2rem 1.5rem 5rem;}
+  .page-grid-2{grid-template-columns:1fr;}
+  .catalogue-nav{padding:1rem 1.5rem;}
+  .catalogue-body{padding:2rem 1.5rem 5rem;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .page-hero-band{padding:3rem 1.5rem;}
+}
+
+@media(max-width:560px){
+  /* Layout général */
+  .p-grid,.bento,.vals-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;}
+  .sc-corner{display:none;}
+  .story-txt{overflow:hidden;}
+
+  /* Nav */
+  nav{height:60px;padding:0 1.2rem;}
+  .logo{font-size:1.4rem;}
+  .nav-cart span.cn{display:none;}
+
+  /* Hero */
+  .hero-l{padding:3rem 1.5rem;}
+  .hero-h1{font-size:clamp(3rem,14vw,5rem);}
+  .hero-tag{font-size:.5rem;}
+  .hero-desc{font-size:1rem;}
+  .hero-ctas{flex-direction:column;align-items:flex-start;gap:.8rem;}
+
+  /* Sections */
+  .collections,.shop,.values,.reviews,.tiktok,.nl{padding:3rem 1.2rem;}
+  .col-header{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .shop-header{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .story-txt{padding:3rem 1.2rem;}
+
+  /* Produits — 1 colonne, carte verticale, grande photo */
+  .p-grid{grid-template-columns:1fr;gap:16px;}
+  .cat-grid{grid-template-columns:1fr !important;gap:16px;}
+  .pc{display:block;}
+  .pc-img{aspect-ratio:3/4 !important;width:100%;display:block;}
+  .pc-name{font-size:1.1rem;}
+  .pc-desc{display:block;font-size:.75rem;}
+  .pc-info{padding:1.2rem 1.5rem 1.5rem;}
+  .pc-price{font-size:1.2rem;}
+  .pc-cat{font-size:.5rem;}
+  .pc-plus{width:32px;height:32px;}
+
+  /* Avis */
+  .rev-grid{grid-template-columns:1fr;}
+
+  /* TikTok */
+  .tiktok-inner{gap:2rem;}
+  .tt-cards{grid-template-columns:repeat(3,1fr);gap:4px;}
+  .ttc{height:120px;}
+
+  /* Newsletter */
+  .nl-form{flex-direction:column;}
+  .nl-form input{border-right:2px solid rgba(255,255,255,.3);}
+  .nl-form button{width:100%;}
+
+  /* Footer */
+  footer{padding:2rem 1.2rem 0;}
+  .f-bot{flex-direction:column;gap:.5rem;text-align:center;padding:1.5rem 0;}
+
+  /* Pages overlay */
+  .page-ov-nav{padding:.8rem 1.2rem;}
+  .page-ov-title{font-size:1.1rem;}
+  .page-ov-body{padding:1.5rem 1.2rem 5rem;}
+  .page-grid-2{grid-template-columns:1fr;gap:1.5rem;}
+  .catalogue-ov{overflow-x:hidden;}
+  .cat-filter-bar{gap:.4rem;}
+  .cat-filter{padding:.45rem .9rem;font-size:.52rem;}
+  .page-hero-band{padding:2.5rem 1.2rem;}
+  .page-hero-band h1{font-size:clamp(2.5rem,10vw,4rem);}
+  .page-card{padding:1.8rem 1.2rem;}
+
+  /* Modale */
+  .modal-box{padding:2rem 1.2rem;margin:1rem;}
+  .modal-ov{align-items:flex-end;}
+
+  /* Panier */
+  .cart-p{width:100%;border-radius:0;}
+
+  /* Bandeau cookies */
+  .cookie-banner{padding:1.2rem;}
+
+  /* Valeurs */
+  .vals-grid{grid-template-columns:1fr;}
+  .vi{padding:2rem 1.5rem;}
+}
+
+/* ── FLEURS JAUNES — touche décorative ── */
+.deco-flower {
+  width: 52px; height: 52px;
+  display: inline-block;
+  filter: drop-shadow(0 2px 6px rgba(200,160,0,.25));
+  animation: spin-slow 12s linear infinite;
+  flex-shrink: 0;
+}
+.deco-flower-sm {
+  width: 32px; height: 32px;
+  display: inline-block;
+  filter: drop-shadow(0 1px 4px rgba(200,160,0,.2));
+  animation: spin-slow 16s linear infinite reverse;
+  flex-shrink: 0;
+}
+@keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+/* Fleurs fixes dans le hero */
+.flower-hero-1 { position:absolute; top:2.5rem; right:2rem; z-index:2; opacity:.85; }
+.flower-hero-2 { position:absolute; bottom:3rem; right:3.5rem; z-index:2; opacity:.7; }
+
+/* Fleurs dans le ticker */
+.ticker-flower { display:inline-flex; align-items:center; padding:0 1.5rem; }
+
+/* Fleurs dans la nav */
+.nav-flower { display:inline-block; margin-left:.4rem; }
+
+/* Fleurs section valeurs */
+.vals-flowers { display:flex; justify-content:center; gap:1.2rem; margin-bottom:2.5rem; align-items:center; }
+
+/* Fleur badge section header */
+.sh-flower { display:flex; align-items:center; justify-content:center; gap:.8rem; margin-bottom:.5rem; }
+
+/* Fleur dans le footer */
+.footer-flower { position:absolute; bottom:1.5rem; right:3rem; opacity:.18; }
+.footer-flower svg { width:80px; height:80px; }
+
+/* ── PAGES NAV ── */
+.page-ov{position:fixed;inset:0;background:var(--cream);z-index:140;display:none;overflow-y:auto;}
+.page-ov.open{display:block;}
+.page-ov-nav{position:sticky;top:0;background:var(--cream);border-bottom:2px solid var(--pink);padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;z-index:10;}
+.page-ov-back{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);background:none;border:none;font-family:'DM Sans',sans-serif;font-weight:500;}
+.page-ov-back:hover{color:var(--pink-d);}
+.page-ov-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--black);}
+.page-ov-body{padding:4rem 5rem 8rem;}
+.page-hero-band{background:var(--pink);background-image:var(--stripes-d);padding:4rem 5rem;margin-bottom:4rem;}
+.page-hero-band h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,6rem);color:white;letter-spacing:.04em;line-height:.9;}
+.page-hero-band h1 em{-webkit-text-stroke:2px white;color:transparent;font-style:normal;}
+.page-hero-band p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(255,255,255,.9);margin-top:1rem;max-width:500px;line-height:1.8;}
+.page-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.page-card{background:white;padding:2.5rem;border-top:3px solid var(--pink);}
+.page-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.06em;color:var(--black);margin-bottom:.8rem;}
+.page-card h3 em{color:var(--pink-d);font-style:normal;}
+.page-card p{font-size:.82rem;color:#5A2030;line-height:1.9;font-weight:300;}
+.page-info-row{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem;}
+.page-info-icon{width:36px;height:36px;background:var(--pink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-top:.2rem;}
+.page-info-txt h4{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--black);margin-bottom:.3rem;}
+.page-info-txt p{font-size:.8rem;color:#5A2030;line-height:1.8;font-weight:300;margin:0;}
+.contact-form{max-width:560px;}
+.cf-field{margin-bottom:1.2rem;}
+.cf-field label{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem;font-weight:600;}
+.cf-field input,.cf-field textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--pink-s);background:white;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--black);outline:none;transition:border-color .2s;resize:none;}
+.cf-field input:focus,.cf-field textarea:focus{border-color:var(--pink-m);}
+
+/* ── PAGE CATALOGUE ── */
+.catalogue-ov{position:fixed;inset:0;background:var(--cream);z-index:150;display:none;overflow-y:auto;}
+.catalogue-ov.open{display:block;}
+.catalogue-nav{position:sticky;top:0;background:var(--cream);border-bottom:2px solid var(--pink);padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;z-index:10;}
+.catalogue-back{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);background:none;border:none;font-family:'DM Sans',sans-serif;font-weight:500;display:flex;align-items:center;gap:.5rem;}
+.catalogue-back:hover{color:var(--pink-d);}
+.catalogue-title-bar{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--black);}
+.catalogue-body{padding:3rem 5rem 6rem;}
+.cat-section{margin-bottom:4rem;}
+.cat-section-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--black);letter-spacing:.06em;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:2px solid var(--pink);display:flex;align-items:center;gap:1rem;}
+.cat-section-title span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink-d);font-weight:600;font-family:'DM Sans',sans-serif;}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.cat-filter-bar{display:flex;gap:.5rem;margin-bottom:3rem;flex-wrap:wrap;}
+.cat-filter{padding:.5rem 1.2rem;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;background:white;border:1.5px solid var(--pink-s);color:var(--mid);font-family:'DM Sans',sans-serif;transition:all .2s;}
+.cat-filter.active,.cat-filter:hover{background:var(--pink-d);color:white;border-color:var(--pink-d);}
+
+/* ── MODALE ── */
+.modal-ov{position:fixed;inset:0;background:rgba(26,8,24,.6);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.modal-ov.open{display:flex;}
+.modal-box{background:var(--cream);width:100%;max-width:420px;padding:3rem;position:relative;border-top:3px solid var(--pink-d);}
+.modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.1rem;color:var(--mid);padding:.3rem;}
+.modal-close:hover{color:var(--pink-d);}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--black);letter-spacing:.06em;margin-bottom:.3rem;}
+.modal-title em{color:var(--pink-d);font-style:normal;}
+.modal-sub{font-size:.72rem;color:var(--mid);margin-bottom:2rem;font-weight:300;}
+.modal-field{margin-bottom:1.2rem;}
+.modal-field label{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem;font-weight:600;}
+.modal-field input{width:100%;padding:.75rem 1rem;border:1.5px solid var(--pink-s);background:white;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--black);outline:none;transition:border-color .2s;}
+.modal-field input:focus{border-color:var(--pink-m);}
+.modal-btn{width:100%;background:var(--pink-d);color:white;border:none;padding:1rem;font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-top:.5rem;transition:background .2s;}
+.modal-btn:hover{background:var(--red);}
+.modal-switch{text-align:center;margin-top:1.2rem;font-size:.72rem;color:var(--mid);}
+.modal-switch a{color:var(--pink-d);text-decoration:none;font-weight:600;}
+.modal-switch a:hover{text-decoration:underline;}
+
+/* ── BANDEAU COOKIES ── */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--dark);color:white;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;z-index:500;border-top:2px solid var(--pink);}
+.cookie-banner p{font-size:.72rem;line-height:1.7;color:rgba(255,255,255,.85);margin:0;}
+.cookie-banner a{color:var(--pink);text-decoration:underline;}
+.cookie-banner-btns{display:flex;gap:.8rem;flex-shrink:0;}
+.cookie-accept{background:var(--pink-d);color:white;border:none;padding:.6rem 1.4rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'DM Sans',sans-serif;transition:background .2s;white-space:nowrap;}
+.cookie-accept:hover{background:var(--red);}
+.cookie-refuse{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.3);padding:.6rem 1.4rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap;}
+.cookie-refuse:hover{border-color:white;color:white;}
+@media(max-width:600px){.cookie-banner{flex-direction:column;padding:1.5rem;text-align:center;}.cookie-banner-btns{width:100%;}.cookie-accept,.cookie-refuse{flex:1;}}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--black);color:white;padding:.75rem 1.8rem;font-size:.72rem;letter-spacing:.12em;opacity:0;transition:all .3s;pointer-events:none;z-index:300;white-space:nowrap;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+
+<style>
+#cs-overlay {
+  position:fixed; inset:0; background:#FFF0F7; z-index:999999;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.8rem;
+}
+#cs-logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:3.5rem; letter-spacing:16px; font-weight:300; color:#1A0818; }
+#cs-line { width:220px; height:1px; background:#FFB3D1; }
+#cs-bijoux { font-family:'DM Sans',sans-serif; font-size:0.55rem; letter-spacing:8px; font-weight:500; color:#884060; }
+#cs-msg { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:1.1rem; color:#884060; margin-top:1.5rem; }
+</style>
+<script>
+/* ══════════════════════════════════
+   COMING SOON — changer true/false
+   true  = coming soon affiché
+   false = site normal visible
+══════════════════════════════════ */
+const COMING_SOON_ACTIVE = true;
+/* ════════════════════════════════ */
+
+if(COMING_SOON_ACTIVE){
+  document.write('<div id="cs-overlay"><div id="cs-logo">JĀWHARA<\/div><div id="cs-line"><\/div><div id="cs-bijoux">— bijoux —<\/div><div id="cs-msg">Bientôt disponible ❖ Notre boutique arrive<\/div><\/div>');
+}
+</script>
+</head>
+<body id="top">
+
+<div class="cursor" id="cursor" style="display:none">
+  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+    <g transform="translate(20,20)">
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+      <circle cx="0" cy="0" r="5" fill="white"/>
+      <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+    </g>
+  </svg>
+</div>
+
+<nav>
+  <a href="#top" class="logo">JĀWHARA</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="openPage('collections');return false;">Collections</a></li>
+    <li><a href="#" onclick="openPage('boutique');return false;">Boutique</a></li>
+    <li><a href="#" onclick="openPage('apropos');return false;">À propos</a></li>
+    <li><a href="#" onclick="openPage('contact');return false;">Contact</a></li>
+  </ul>
+  <div style="display:flex;flex-direction:column;align-items:stretch;gap:2px;">
+    <button class="nav-login">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Connexion
+    </button>
+    <button class="nav-cart" onclick="toggleCart()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Panier <span class="cn" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag">Nouvelle collection 2026</div>
+    <h1 class="hero-h1">
+      BIJ<span class="outline">OUX</span><br>
+      <span class="accent">QUI VOUS</span><br>
+      FONT BRILLER
+    </h1>
+    <div class="stripe-line">
+      <span style="width:48px;background:white;"></span>
+      <span style="width:18px;background:var(--red);"></span>
+      <span style="width:10px;background:rgba(255,255,255,.4);"></span>
+    </div>
+    <div style="margin-bottom:1.5rem;"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g transform="translate(20,20)">
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+  </g>
+</svg></div>
+    <p class="hero-desc">Pièces tendances sélectionnées avec soin. Accessibles à toutes, portées par toutes.</p>
+    <div class="hero-ctas">
+      <a href="#shop" class="btn-cream">Découvrir →</a>
+      <a href="#collections" class="btn-outline-cream">Collections</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-photo">
+      <span class="flower-hero-1"><svg class="deco-flower" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <g transform="translate(30,30)">
+    <!-- 8 pétales arrondis -->
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(315)"/>
+    <!-- Centre blanc avec point jaune foncé -->
+    <circle cx="0" cy="0" r="7" fill="white"/>
+    <circle cx="0" cy="0" r="3.5" fill="#C8A000"/>
+  </g>
+</svg></span><span class="flower-hero-2"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g transform="translate(20,20)">
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+  </g>
+</svg></span><div class="hero-ph">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".12"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Votre photo produit ici</span>
+      </div>
+      <!-- 🖼️ <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" src="img/hero.jpg"> -->
+      
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">Livraison offerte dès 40 €</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Emballé avec soin</span><span class="tg" style="color:var(--yellow)"> ✦ </span><span class="ti">Bijoux tendances 2026</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Sélection accessible à toutes</span><span class="tg" style="color:var(--pink-l)"> ✦ </span><span class="ti">Livraison offerte dès 40 €</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Emballé avec soin</span><span class="tg" style="color:var(--cobalt-l)"> ✦ </span><span class="ti">Bijoux tendances 2026</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Sélection accessible à toutes</span><span class="tg" style="color:var(--yellow)"> ✦ </span>
+    <span class="ti">Livraison offerte dès 40 €</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Emballé avec soin</span><span class="tg" style="color:var(--yellow)"> ✦ </span><span class="ti">Bijoux tendances 2026</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Sélection accessible à toutes</span><span class="tg" style="color:var(--pink-l)"> ✦ </span><span class="ti">Livraison offerte dès 40 €</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Emballé avec soin</span><span class="tg" style="color:var(--cobalt-l)"> ✦ </span><span class="ti">Bijoux tendances 2026</span><span class="ticker-flower"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g transform="translate(20,20)"><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/><ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="white"/><circle cx="0" cy="0" r="2.5" fill="#C8A000"/></g></svg></span><span class="ti">Sélection accessible à toutes</span><span class="tg" style="color:var(--yellow)"> ✦ </span>
+  </div>
+</div>
+</div>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="col-header">
+    <h2 class="col-title">NOS<br><span class="outline">COLLEC</span><br><span class="pink">TIONS</span></h2>
+    <p class="col-desc">Sélection tendances et accessibles.</p>
+  </div>
+  <div class="bento">
+    <a href="#" onclick="openCatalogue('Colliers')" class="bento-card"><div class="bento-bg" style="position:absolute;inset:0;"></div><div class="bento-ov"></div><div class="bento-border"></div><div class="bento-info"><span class="bento-tag">Été 2026</span><span class="bento-name">Colliers</span><span class="bento-count">12 pièces</span></div></a>
+    <a href="#" onclick="openCatalogue('Bagues')" class="bento-card"><div class="bento-bg" style="position:absolute;inset:0;"></div><div class="bento-ov"></div><div class="bento-border"></div><div class="bento-info"><span class="bento-tag">Intemporel</span><span class="bento-name">Bagues</span><span class="bento-count">8 pièces</span></div></a>
+    <a href="#" onclick="openCatalogue('Bracelets')" class="bento-card"><div class="bento-bg" style="position:absolute;inset:0;"></div><div class="bento-ov"></div><div class="bento-border"></div><div class="bento-info"><span class="bento-tag">Nouveau</span><span class="bento-name">Bracelets</span><span class="bento-count">10 pièces</span></div></a>
+    <a href="#" onclick="openCatalogue('Boucles d\'oreilles')" class="bento-card"><div class="bento-bg" style="position:absolute;inset:0;"></div><div class="bento-ov"></div><div class="bento-border"></div><div class="bento-info"><span class="bento-tag">Best-sellers</span><span class="bento-name">Boucles</span><span class="bento-count">15 pièces</span></div></a>
+  </div>
+</section>
+
+<!-- BOUTIQUE -->
+<section class="shop" id="shop">
+  <div class="shop-header">
+    <h2 class="shop-title">PIÈCES DU<br><em>MOMENT</em></h2>
+    <a href="#shop" class="btn-outline-dark">Tout voir →</a>
+  </div>
+  <div class="p-grid" id="pgrid"></div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-vis">
+    <div class="story-mono">L</div>
+    <div class="story-circle"><span class="story-circle-txt">JĀWHARA</span></div>
+  </div>
+  <div class="story-txt">
+    <div class="sc-corner sc-tr"></div>
+    <div class="sc-corner sc-bl"></div>
+    <div class="stag">Notre philosophie</div>
+    <h2 class="story-h">DES BIJOUX<br>QUI VOUS<br><span class="outline">PARLENT</span></h2>
+    <div class="story-q">"Chaque pièce est choisie pour son design, sa qualité et son prix juste."</div>
+    <p class="story-body">Nous parcourons les tendances pour vous proposer des bijoux actuels, portables chaque jour et accessibles à toutes.</p>
+    <div class="feats">
+      <div class="feat"><div class="fdot" style="background:var(--terra)"></div>Sélection renouvelée selon les tendances</div>
+      <div class="feat"><div class="fdot" style="background:var(--yellow-d)"></div>Prix accessibles, qualité vérifiée</div>
+      <div class="feat"><div class="fdot" style="background:var(--turq)"></div>Emballé avec soin</div>
+      
+    </div>
+    <a href="#" onclick="openPage('boutique');return false;" class="btn-pink">Voir la boutique →</a>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="values" id="values">
+  <div class="vals-flowers"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g transform="translate(20,20)">
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+  </g>
+</svg><svg class="deco-flower" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <g transform="translate(30,30)">
+    <!-- 8 pétales arrondis -->
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(315)"/>
+    <!-- Centre blanc avec point jaune foncé -->
+    <circle cx="0" cy="0" r="7" fill="white"/>
+    <circle cx="0" cy="0" r="3.5" fill="#C8A000"/>
+  </g>
+</svg><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g transform="translate(20,20)">
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+  </g>
+</svg></div>
+  <h2 class="vals-title">CE QUI NOUS <em>DÉFINIT</em></h2>
+  <div class="vals-grid">
+    <div class="vi"><div class="vi-num">01</div><div class="vi-name">Sélection soignée</div><div class="vi-desc">Chaque pièce choisie pour son design, sa tendance et sa qualité perçue.</div></div>
+    <div class="vi"><div class="vi-num">02</div><div class="vi-name">Prix accessibles</div><div class="vi-desc">Des bijoux tendances à des prix que vous pouvez vous permettre.</div></div>
+    <div class="vi"><div class="vi-num">03</div><div class="vi-name">Livraison rapide</div><div class="vi-desc">Expédition soignée et suivie. Offerte dès 40 € d'achat.</div></div>
+    
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="reviews">
+  <h2 class="reviews-title">ELLES PORTENT <em>JĀWHARA</em></h2>
+  <div class="rev-grid">
+    <div class="rc"><div class="rc-stars">★★★★★</div><div class="rc-text">"Le collier est encore plus beau en vrai. Livraison ultra rapide, emballage magnifique."</div><div class="rc-auth">— Camille D., Paris</div></div>
+    <div class="rc"><div class="rc-stars">★★★★★</div><div class="rc-text">"Commandé après l'avoir vu sur TikTok. Les boucles sont parfaites, je les porte tous les jours."</div><div class="rc-auth">— Léa M., Bordeaux</div></div>
+    <div class="rc"><div class="rc-stars">★★★★★</div><div class="rc-text">"Rapport qualité/prix imbattable. La bague est solide, aucune réaction. Je recommande à 100%."</div><div class="rc-auth">— Yasmine K., Lyon</div></div>
+  </div>
+</section>
+
+<!-- TIKTOK -->
+<section class="tiktok">
+  <div class="tiktok-inner">
+    <div>
+      <h2 class="tt-title">SUIVEZ-NOUS SUR <em>TIKTOK</em></h2>
+      <span class="tt-handle">@jawhara.bijoux</span>
+      <p class="tt-sub">Hauls, essayages — toute la vie de JĀWHARA en vidéo.</p>
+      <a href="https://www.tiktok.com/@jawhara.bijoux" target="_blank" class="btn-cream">Voir nos vidéos ↗</a>
+    </div>
+    <div class="tt-cards">
+      <div class="ttc"><div class="ttc-bg" style="position:absolute;inset:0;"></div><div class="ttc-ov"></div><div class="ttc-views">12k vues</div><div class="ttc-lbl">Haul bijoux</div></div>
+      <div class="ttc"><div class="ttc-bg" style="position:absolute;inset:0;"></div><div class="ttc-ov"></div><div class="ttc-views">8k vues</div><div class="ttc-lbl">3 façons de porter</div></div>
+      <div class="ttc"><div class="ttc-bg" style="position:absolute;inset:0;"></div><div class="ttc-ov"></div><div class="ttc-views">21k vues</div><div class="ttc-lbl">Unboxing</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="nl" id="nl">
+  <div>
+    <h2 class="nl-title">LES <em>NOUVEAUTÉS</em><br>EN AVANT-PREMIÈRE</h2>
+    <div style="margin-top:.8rem;display:flex;gap:.6rem;align-items:center;"><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g transform="translate(20,20)">
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+  </g>
+</svg><svg class="deco-flower-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g transform="translate(20,20)">
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="#FFD020" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <circle cx="0" cy="0" r="2.5" fill="#C8A000"/>
+  </g>
+</svg></div>
+    <p class="nl-sub">Nos dernières pièces directement dans votre boîte mail.</p>
+  </div>
+  <div>
+    <form class="nl-form" onsubmit="nlSub(event)">
+      <input type="email" id="nlEmail" placeholder="Votre adresse email" required>
+      <button type="submit">S'inscrire ✦</button>
+    </form>
+    <label style="display:flex;align-items:flex-start;gap:.6rem;margin-top:.8rem;">
+      <input type="checkbox" id="nlConsent" style="margin-top:.2rem;accent-color:var(--pink-d);flex-shrink:0;" required>
+      <span style="font-size:.68rem;color:rgba(255,255,255,.65);line-height:1.6;">J'accepte de recevoir les emails de JĀWHARA et je confirme avoir lu la <a href="jawhara_mentions_legales.html#conf" style="color:rgba(255,255,255,.85);text-decoration:underline;">politique de confidentialité</a>. Je peux me désabonner à tout moment.</span>
+    </label>
+    <div class="nl-perks">
+      <div class="nl-perk">Accès prioritaire aux nouvelles collections</div>
+      <div class="nl-perk">−10% offerts dès votre inscription</div>
+    </div>
+    <p style="font-size:.62rem;color:rgba(255,255,255,.45);margin-top:1rem;line-height:1.7;">En vous inscrivant, vous acceptez de recevoir nos emails. Vous pouvez vous désabonner à tout moment en cliquant sur le lien de désabonnement présent dans chaque email, ou en nous contactant à <a href="/cdn-cgi/l/email-protection#fb9894958f9a988fbb919a8c939a899ad6999291948e83d59d89" style="color:rgba(255,255,255,.65);text-decoration:underline;"><span class="__cf_email__" data-cfemail="e2818d8c96838196a28883958a839083cf808b888d979acc8490">[email&#160;protected]</span></a>. Vos données ne seront jamais revendues. <a href="jawhara_mentions_legales.html#conf" style="color:rgba(255,255,255,.65);text-decoration:underline;">Politique de confidentialité</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="f-stripe"></div>
+  <div class="footer-flower"><svg class="deco-flower" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <g transform="translate(30,30)">
+    <!-- 8 pétales arrondis -->
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#FFD020" transform="rotate(315)"/>
+    <!-- Centre blanc avec point jaune foncé -->
+    <circle cx="0" cy="0" r="7" fill="white"/>
+    <circle cx="0" cy="0" r="3.5" fill="#C8A000"/>
+  </g>
+</svg></div>
+  <div><div class="f-logo">JĀWHARA <span class="f-logo-star">✦</span></div><p class="f-desc">Une sélection de bijoux tendances, accessibles et portables. Le style à la portée de toutes.</p><p class="f-contact">✉ <a href="/cdn-cgi/l/email-protection#7714181903161403371d16001f1605165a151e1d18020f591105"><span class="__cf_email__" data-cfemail="55363a3b21343621153f34223d34273478373c3f3a202d7b3327">[email&#160;protected]</span></a></p></div>
+  <div class="f-col"><h5>Boutique</h5><ul><li><a href="#" onclick="openPage('collections');return false;">Collections</a></li><li><a href="#" onclick="openPage('boutique');return false;">Tous les bijoux</a></li></ul></div>
+  <div class="f-col"><h5>Infos</h5><ul><li><a href="#" onclick="openPage('apropos');return false;">À propos</a></li><li><a href="#" onclick="openPage('livraison');return false;">Livraison &amp; retours</a></li><li><a href="#" onclick="openPage('tailles');return false;">Guide des tailles</a></li><li><a href="#" onclick="openPage('faq');return false;">FAQ</a></li></ul></div>
+  <div class="f-col"><h5>Légal</h5><ul><li><a href="jawhara_mentions_legales.html#cgv">CGV</a></li><li><a href="jawhara_mentions_legales.html#ml">Mentions légales</a></li><li><a href="jawhara_mentions_legales.html#conf">Confidentialité</a></li></ul></div>
+  <div class="f-bot"><span>© 2026 JĀWHARA — Tous droits réservés</span><span>Fait avec ♥ en France</span></div>
+</footer>
+
+<!-- PAGE LIVRAISON & RETOURS -->
+<div class="page-ov" id="pageLivraison">
+  <div class="page-ov-nav">
+    <button class="page-ov-back" onclick="closePage('pageLivraison')">← Retour au site</button>
+    <div class="page-ov-title">LIVRAISON &amp; RETOURS</div>
+    <div></div>
+  </div>
+  <div class="page-ov-body">
+    <div class="page-grid-2">
+      <div class="page-card">
+        <h3>🚚 <em>LIVRAISON</em></h3>
+        <div class="page-info-row" style="margin-top:1rem;"><div class="page-info-icon">🇫🇷</div><div class="page-info-txt"><h4>France métropolitaine</h4><p>3 à 5 jours ouvrés — Offerte dès 40 € d'achat</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">🇪🇺</div><div class="page-info-txt"><h4>Europe</h4><p>5 à 10 jours ouvrés</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">📦</div><div class="page-info-txt"><h4>Suivi de commande</h4><p>Un numéro de suivi vous est envoyé par email dès l'expédition.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">⏱️</div><div class="page-info-txt"><h4>Délai de traitement</h4><p>Votre commande est préparée sous 2 à 3 jours ouvrés après validation du paiement.</p></div></div>
+      </div>
+      <div class="page-card">
+        <h3>↩️ <em>RETOURS</em></h3>
+        <div class="page-info-row" style="margin-top:1rem;"><div class="page-info-icon">📅</div><div class="page-info-txt"><h4>Délai de rétractation</h4><p>Vous disposez de 14 jours après réception pour retourner votre commande, sans justification.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">✉️</div><div class="page-info-txt"><h4>Comment retourner ?</h4><p>Contactez-nous à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1c10110b1e1c0b3f151e08171e0d1e521d1615100a0751190d">[email&#160;protected]</a> avec votre numéro de commande.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">💳</div><div class="page-info-txt"><h4>Remboursement</h4><p>Le remboursement est effectué sous 14 jours après réception du retour.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">⚠️</div><div class="page-info-txt"><h4>Exception</h4><p>Les bijoux personnalisés ou sur mesure ne sont pas soumis au droit de rétractation.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE GUIDE DES TAILLES -->
+<div class="page-ov" id="pageTailles">
+  <div class="page-ov-nav">
+    <button class="page-ov-back" onclick="closePage('pageTailles')">← Retour au site</button>
+    <div class="page-ov-title">GUIDE DES TAILLES</div>
+    <div></div>
+  </div>
+  <div class="page-hero-band" style="background:var(--turq);">
+    <h1>GUIDE DES <em>TAILLES</em></h1>
+    <p>Trouvez la taille parfaite pour chaque bijou grâce à notre guide.</p>
+  </div>
+  <div class="page-ov-body">
+    <div class="page-grid-2">
+      <div class="page-card">
+        <h3>💍 <em>BAGUES</em></h3>
+        <p style="margin-bottom:1rem;">Pour connaître votre taille de bague, mesurez le diamètre intérieur de votre bague ou le tour de doigt avec un ruban.</p>
+        <table style="width:100%;font-size:.78rem;border-collapse:collapse;">
+          <tr style="background:var(--pink);"><th style="padding:.5rem;text-align:left;">Taille</th><th style="padding:.5rem;text-align:left;">Tour de doigt</th><th style="padding:.5rem;text-align:left;">Diamètre</th></tr>
+          <tr style="border-bottom:1px solid var(--pink-s);"><td style="padding:.5rem;">50</td><td style="padding:.5rem;">50 mm</td><td style="padding:.5rem;">15,9 mm</td></tr>
+          <tr style="border-bottom:1px solid var(--pink-s);background:var(--cream);"><td style="padding:.5rem;">52</td><td style="padding:.5rem;">52 mm</td><td style="padding:.5rem;">16,6 mm</td></tr>
+          <tr style="border-bottom:1px solid var(--pink-s);"><td style="padding:.5rem;">54</td><td style="padding:.5rem;">54 mm</td><td style="padding:.5rem;">17,2 mm</td></tr>
+          <tr style="border-bottom:1px solid var(--pink-s);background:var(--cream);"><td style="padding:.5rem;">56</td><td style="padding:.5rem;">56 mm</td><td style="padding:.5rem;">17,8 mm</td></tr>
+          <tr><td style="padding:.5rem;">58</td><td style="padding:.5rem;">58 mm</td><td style="padding:.5rem;">18,5 mm</td></tr>
+        </table>
+      </div>
+      <div class="page-card">
+        <h3>📿 <em>COLLIERS & BRACELETS</em></h3>
+        <p style="margin-bottom:1.2rem;"><strong>Colliers :</strong></p>
+        <div class="page-info-row"><div class="page-info-icon" style="font-size:.75rem;width:auto;padding:0 .6rem;">40 cm</div><div class="page-info-txt"><h4>Ras-de-cou</h4><p>Très près du cou, effet court et chic.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon" style="font-size:.75rem;width:auto;padding:0 .6rem;">45 cm</div><div class="page-info-txt"><h4>Standard</h4><p>Longueur classique, repose sur la clavicule.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon" style="font-size:.75rem;width:auto;padding:0 .6rem;">50 cm</div><div class="page-info-txt"><h4>Mi-long</h4><p>Descend légèrement sous la clavicule.</p></div></div>
+        <p style="margin:1.2rem 0 .8rem;"><strong>Bracelets :</strong></p>
+        <div class="page-info-row"><div class="page-info-icon" style="font-size:.75rem;width:auto;padding:0 .6rem;">16 cm</div><div class="page-info-txt"><h4>Petit poignet</h4><p>Tour de poignet jusqu'à 16 cm.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon" style="font-size:.75rem;width:auto;padding:0 .6rem;">18 cm</div><div class="page-info-txt"><h4>Poignet standard</h4><p>Tour de poignet de 16 à 18 cm.</p></div></div>
+      </div>
+    </div>
+    <div class="page-card">
+      <h3>💡 CONSEIL <em>MESURE</em></h3>
+      <p>Pour mesurer votre tour de doigt : enroulez une bandelette de papier autour de votre doigt, marquez le point de jonction et mesurez la longueur avec une règle. Le résultat en millimètres correspond à votre taille.</p>
+      <p style="margin-top:.8rem;">En cas de doute entre deux tailles, optez pour la plus grande — il est plus facile d'adapter une bague trop grande que trop petite.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE FAQ -->
+<div class="page-ov" id="pageFaq">
+  <div class="page-ov-nav">
+    <button class="page-ov-back" onclick="closePage('pageFaq')">← Retour au site</button>
+    <div class="page-ov-title">FAQ</div>
+    <div></div>
+  </div>
+  <div class="page-hero-band" style="background:var(--pink-d);">
+    <h1>QUESTIONS <em>FRÉQUENTES</em></h1>
+    <p>Toutes les réponses à vos questions sur nos bijoux, commandes et livraisons.</p>
+  </div>
+  <div class="page-ov-body">
+    <div id="faqList"></div>
+  </div>
+</div>
+
+<div class="cart-ov" id="cartOv" onclick="closeCart(event)">
+  <div class="cart-p">
+    <div class="cst"></div>
+    <div class="cart-hd"><h3>PANIER</h3><button class="cart-x" onclick="toggleCart()">✕</button></div>
+    <div class="cart-body" id="cartBody"><div class="cart-void">Votre panier est vide.</div></div>
+    <div class="cart-ft" id="cartFt" style="display:none;">
+      <div class="cart-tot"><span>Total</span><strong id="cartTot">0,00 €</strong></div>
+      <button class="cart-btn">Commander →</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+
+<!-- PAGE COLLECTIONS -->
+<div class="page-ov" id="pageCollections">
+  <div class="page-ov-nav">
+    <button class="page-ov-back" onclick="closePage('pageCollections')">← Retour au site</button>
+    <div class="page-ov-title">NOS COLLECTIONS</div>
+    <div></div>
+  </div>
+  <div class="page-ov-body">
+    <div class="page-grid-2">
+      <div class="page-card" style="border-top-color:var(--pink-d);" onclick="closePage('pageCollections');openCatalogue('Colliers')">
+        <h3>💛 <em>COLLIERS</em></h3>
+        <p>Chaînes fines, pendentifs, ras-de-cou… Une sélection de colliers tendances pour sublimer votre décolleté.</p>
+        <p style="margin-top:1rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pink-d);font-weight:600;">Voir les colliers →</p>
+      </div>
+      <div class="page-card" style="border-top-color:var(--cobalt);" onclick="closePage('pageCollections');openCatalogue('Bagues')">
+        <h3>💙 <em>BAGUES</em></h3>
+        <p>Chunky, délicates, ajustables — des bagues pour toutes les mains et toutes les envies.</p>
+        <p style="margin-top:1rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pink-d);font-weight:600;">Voir les bagues →</p>
+      </div>
+      <div class="page-card" style="border-top-color:var(--turq);" onclick="closePage('pageCollections');openCatalogue('Boucles d\'oreilles')">
+        <h3>💎 <em>BOUCLES D'OREILLES</em></h3>
+        <p>Créoles oversize, puces discrètes, pendantes — le must-have de chaque tenue.</p>
+        <p style="margin-top:1rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pink-d);font-weight:600;">Voir les boucles →</p>
+      </div>
+      <div class="page-card" style="border-top-color:var(--yellow);" onclick="closePage('pageCollections');openCatalogue('Bracelets')">
+        <h3>🌸 <em>BRACELETS</em></h3>
+        <p>Perles, chaînes, joncs — des bracelets à empiler ou à porter seuls pour un look parfait.</p>
+        <p style="margin-top:1rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pink-d);font-weight:600;">Voir les bracelets →</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BOUTIQUE -->
+<div class="catalogue-ov" id="pageBoutique" style="z-index:145;">
+  <div class="catalogue-nav">
+    <button class="catalogue-back" onclick="closePage('pageBoutique')">← Retour au site</button>
+    <div class="catalogue-title-bar">TOUTE LA BOUTIQUE</div>
+    <div style="font-size:.62rem;letter-spacing:.1em;color:var(--mid);" id="boutiqueCount"></div>
+  </div>
+  <div class="catalogue-body">
+    <div class="cat-filter-bar">
+      <button class="cat-filter active" data-cat="all" onclick="renderBoutique('all');updateBoutiqueFilters(this)">Tout voir</button>
+      <button class="cat-filter" data-cat="Colliers" onclick="renderBoutique('Colliers');updateBoutiqueFilters(this)">Colliers</button>
+      <button class="cat-filter" data-cat="Bagues" onclick="renderBoutique('Bagues');updateBoutiqueFilters(this)">Bagues</button>
+      <button class="cat-filter" data-cat="Boucles d'oreilles" onclick="renderBoutique('Boucles d\'oreilles');updateBoutiqueFilters(this)">Boucles d'oreilles</button>
+      <button class="cat-filter" data-cat="Bracelets" onclick="renderBoutique('Bracelets');updateBoutiqueFilters(this)">Bracelets</button>
+    </div>
+    <div class="cat-grid" id="boutiqueGrid"></div>
+  </div>
+</div>
+
+<!-- PAGE À PROPOS -->
+<div class="page-ov" id="pageApropos">
+  <div class="page-ov-nav">
+    <button class="page-ov-back" onclick="closePage('pageApropos')">← Retour au site</button>
+    <div class="page-ov-title">À PROPOS</div>
+    <div></div>
+  </div>
+  <div class="page-hero-band" style="background:var(--turq);">
+    <h1>NOTRE <em>HISTOIRE</em></h1>
+    <p>"Chaque pièce est choisie pour son design, sa qualité et son prix juste."</p>
+  </div>
+  <div class="page-ov-body">
+    <div class="page-grid-2">
+      <div class="page-card">
+        <h3>QUI SOMMES-<em>NOUS</em> ?</h3>
+        <p>JĀWHARA est une boutique de bijoux de mode fondée avec une conviction simple : toutes les femmes méritent de porter de beaux bijoux, sans se ruiner.</p>
+        <p style="margin-top:1rem;">Nous sélectionnons avec soin chaque pièce pour son design tendance, sa qualité perçue et son prix accessible. De la chaîne fine à la créole oversize, notre catalogue évolue chaque saison.</p>
+      </div>
+      <div class="page-card">
+        <h3>NOTRE <em>PHILOSOPHIE</em></h3>
+        <p>Nous croyons que le style ne devrait pas avoir de prix excessif. C'est pourquoi nous travaillons directement avec des fournisseurs sélectionnés pour vous proposer des bijoux à des tarifs justes.</p>
+        <p style="margin-top:1rem;">Chaque commande est emballée avec soin — parce que le plaisir commence dès la réception du colis.</p>
+      </div>
+    </div>
+    <div class="page-card" style="margin-bottom:0;">
+      <h3>NOS <em>ENGAGEMENTS</em></h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem;">
+        <div class="page-info-row"><div class="page-info-icon">💎</div><div class="page-info-txt"><h4>Sélection soignée</h4><p>Chaque pièce est choisie à la main pour son design et sa tendance.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">📦</div><div class="page-info-txt"><h4>Emballé avec soin</h4><p>Vos bijoux arrivent dans un emballage cadeau prêt à offrir.</p></div></div>
+        <div class="page-info-row"><div class="page-info-icon">🚚</div><div class="page-info-txt"><h4>Livraison rapide</h4><p>Expédition sous 2-5 jours. Offerte dès 40 € d'achat.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CONTACT -->
+<div class="page-ov" id="pageContact">
+  <div class="page-ov-nav">
+    <button class="page-ov-back" onclick="closePage('pageContact')">← Retour au site</button>
+    <div class="page-ov-title">CONTACT</div>
+    <div></div>
+  </div>
+  <div class="page-hero-band" style="background:var(--pink-d);">
+    <h1>NOUS <em>CONTACTER</em></h1>
+    <p>Une question sur votre commande, un bijou à retrouver ? On vous répond sous 48h.</p>
+  </div>
+  <div class="page-ov-body">
+    <div class="page-grid-2">
+      <div>
+        <div class="contact-form">
+          <div class="cf-field"><label>Votre prénom</label><input type="text" placeholder="Marie"></div>
+          <div class="cf-field"><label>Votre email</label><input type="email" placeholder="marie@email.fr"></div>
+          <div class="cf-field"><label>Sujet</label><input type="text" placeholder="Question sur ma commande…"></div>
+          <div class="cf-field"><label>Message</label><textarea rows="5" placeholder="Bonjour, je souhaitais…"></textarea></div>
+          <button class="modal-btn" onclick="sendContact()">Envoyer le message ✦</button>
+        </div>
+      </div>
+      <div>
+        <div class="page-card" style="margin-bottom:1rem;">
+          <h3>NOUS <em>TROUVER</em></h3>
+          <div class="page-info-row" style="margin-top:1rem;"><div class="page-info-icon">✉️</div><div class="page-info-txt"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5c3f3332283d3f281c363d2b343d2e3d713e3536332924723a2e">[email&#160;protected]</a><br>Réponse sous 48h</p></div></div>
+          <div class="page-info-row"><div class="page-info-icon">📱</div><div class="page-info-txt"><h4>TikTok</h4><p>@jawhara.bijoux</p></div></div>
+        </div>
+        <div class="page-card">
+          <h3>LIVRAISON & <em>RETOURS</em></h3>
+          <p>🇫🇷 France métropolitaine : 3-5 jours ouvrés<br>🇪🇺 Europe : 5-10 jours ouvrés<br>📦 Offerte dès 40 € d'achat<br>↩️ Retours acceptés sous 14 jours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CATALOGUE -->
+<div class="catalogue-ov" id="catalogueOv">
+  <div class="catalogue-nav">
+    <button class="catalogue-back" onclick="closeCatalogue()">← Retour au site</button>
+    <div class="catalogue-title-bar">TOUTE LA BOUTIQUE</div>
+    <div style="font-size:.62rem;letter-spacing:.1em;color:var(--mid);" id="catCount"></div>
+  </div>
+  <div class="catalogue-body">
+    <div class="cat-filter-bar">
+      <button class="cat-filter active" data-cat="all" onclick="filterCat('all',this)">Tout voir</button>
+      <button class="cat-filter" data-cat="Colliers" onclick="filterCat('Colliers',this)">Colliers</button>
+      <button class="cat-filter" data-cat="Bagues" onclick="filterCat('Bagues',this)">Bagues</button>
+      <button class="cat-filter" data-cat="Boucles d'oreilles" onclick="filterCat('Boucles d\'oreilles',this)">Boucles d'oreilles</button>
+      <button class="cat-filter" data-cat="Bracelets" onclick="filterCat('Bracelets',this)">Bracelets</button>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</div>
+
+<!-- MODALE CONNEXION -->
+<div class="modal-ov" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <div id="loginView">
+      <div class="modal-title">MON <em>COMPTE</em></div>
+      <p class="modal-sub">Connectez-vous pour suivre vos commandes</p>
+      <div class="modal-field"><label>Email</label><input type="email" id="loginEmail" placeholder="votre@email.fr"></div>
+      <div class="modal-field"><label>Mot de passe</label><input type="password" id="loginPwd" placeholder="••••••••"></div>
+      <button class="modal-btn" onclick="doLogin()">Se connecter ✦</button>
+      <div class="modal-switch">Pas encore de compte ? <a href="#" onclick="switchView('registerView')">Créer un compte</a></div>
+    </div>
+    <div id="registerView" style="display:none">
+      <div class="modal-title">CRÉER UN <em>COMPTE</em></div>
+      <p class="modal-sub">Rejoignez JĀWHARA pour profiter de vos avantages</p>
+      <div class="modal-field"><label>Prénom</label><input type="text" id="regName" placeholder="Votre prénom"></div>
+      <div class="modal-field"><label>Email</label><input type="email" id="regEmail" placeholder="votre@email.fr"></div>
+      <div class="modal-field"><label>Mot de passe</label><input type="password" id="regPwd" placeholder="••••••••"></div>
+      <button class="modal-btn" onclick="doRegister()">Créer mon compte ✦</button>
+      <div class="modal-switch">Déjà un compte ? <a href="#" onclick="switchView('loginView')">Se connecter</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="cart-ov" id="cartOv">
+  <div class="cart-p">
+    <div class="cst"></div>
+    <div class="cart-hd"><h3>PANIER</h3><button class="cart-x" onclick="toggleCart()">✕</button></div>
+    <div class="cart-body" id="cartBody"><div class="cart-void">Votre panier est vide.</div></div>
+    <div class="cart-ft" id="cartFt" style="display:none;">
+      <div class="cart-tot"><span>Total</span><strong id="cartTot">0,00 €</strong></div>
+      <button class="cart-btn" onclick="showToast('Fonctionnalité bientôt disponible ✦')">Commander →</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- BANDEAU COOKIES -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>🍪 Nous utilisons des cookies techniques nécessaires au fonctionnement du site. Aucun cookie publicitaire sans votre consentement. <a href="jawhara_mentions_legales.html#conf">En savoir plus</a></p>
+  <div class="cookie-banner-btns">
+    <button class="cookie-refuse" onclick="closeCookies()">Refuser</button>
+    <button class="cookie-accept" onclick="acceptCookies()">Accepter ✦</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── COOKIES ──
+function acceptCookies(){ localStorage.setItem('cookies','accepted'); document.getElementById('cookieBanner').style.display='none'; }
+function closeCookies(){ localStorage.setItem('cookies','refused'); document.getElementById('cookieBanner').style.display='none'; }
+if(localStorage.getItem('cookies')) document.getElementById('cookieBanner').style.display='none';
+
+// ── CURSEUR ──
+const cur = document.getElementById('cursor');
+if(cur){
+  // Positionner au centre dès le chargement et rendre visible
+  cur.style.left = (window.innerWidth/2) + 'px';
+  cur.style.top  = (window.innerHeight/2) + 'px';
+  cur.classList.add('visible');
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top  = e.clientY + 'px';
+    cur.classList.add('visible');
+  });
+  document.addEventListener('mouseleave', () => cur.classList.remove('visible'));
+  document.addEventListener('mouseenter', () => cur.classList.add('visible'));
+  document.querySelectorAll('a,button,.pc,.bento-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('big'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+  });
+}
+
+// ── PAGES NAV ──
+const pages = {
+  collections: 'pageCollections',
+  boutique:    'pageBoutique',
+  apropos:     'pageApropos',
+  contact:     'pageContact',
+  livraison:   'pageLivraison',
+  tailles:     'pageTailles',
+  faq:         'pageFaq'
+};
+
+// FAQ
+const FAQ = [
+  {q:"Comment passer une commande ?", r:"Ajoutez les bijoux souhaités à votre panier, puis cliquez sur Commander. Vous serez guidé pour saisir vos informations de livraison et de paiement."},
+  {q:"Quels sont les moyens de paiement acceptés ?", r:"Nous acceptons les cartes bancaires (Visa, Mastercard, American Express), Apple Pay, Google Pay et PayPal. Le paiement est sécurisé via Stripe."},
+  {q:"Combien de temps prend la livraison ?", r:"En France métropolitaine : 3 à 5 jours ouvrés. En Europe : 5 à 10 jours ouvrés. Un email de suivi vous est envoyé dès l'expédition."},
+  {q:"La livraison est-elle gratuite ?", r:"Oui ! La livraison est offerte dès 40 € d'achat en France métropolitaine."},
+  {q:"Comment retourner un article ?", r:"Vous avez 14 jours après réception pour retourner un article. Contactez-nous à contact@jawhara-bijoux.fr avec votre numéro de commande. Les frais de retour sont à votre charge."},
+  {q:"Les bijoux sont-ils hypoallergéniques ?", r:"Nous sélectionnons des bijoux de qualité avec des matériaux adaptés. Si vous avez une sensibilité particulière, n'hésitez pas à nous contacter pour plus d'informations sur la composition d'un bijou."},
+  {q:"Comment entretenir mes bijoux ?", r:"Évitez le contact avec l'eau, les parfums et les produits cosmétiques. Rangez vos bijoux dans une pochette ou boîte séparée. Nettoyez-les délicatement avec un chiffon doux."},
+  {q:"Puis-je modifier ou annuler ma commande ?", r:"Contactez-nous rapidement à contact@jawhara-bijoux.fr. Nous ferons notre possible pour modifier votre commande si elle n'a pas encore été expédiée."},
+  {q:"Les bijoux sont-ils vendus sur TikTok Shop ?", r:"Oui ! Retrouvez notre boutique sur TikTok Shop @jawhara.bijoux pour commander directement depuis vos vidéos préférées."},
+  {q:"Comment suivre ma commande ?", r:"Un email avec votre numéro de suivi vous est envoyé dès l'expédition. Vous pouvez suivre votre colis sur le site du transporteur."},
+];
+function renderFaq(){
+  document.getElementById('faqList').innerHTML = FAQ.map((f,i)=>`
+    <div style="border-bottom:1px solid var(--pink-s);margin-bottom:0;">
+      <button onclick="toggleFaq(${i})" style="width:100%;text-align:left;padding:1.5rem 0;background:none;border:none;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;">
+        <span style="font-size:.88rem;font-weight:600;color:var(--black);">${f.q}</span>
+        <span id="faq-icon-${i}" style="color:var(--pink-d);font-size:1.2rem;flex-shrink:0;margin-left:1rem;">+</span>
+      </button>
+      <div id="faq-body-${i}" style="display:none;padding-bottom:1.5rem;font-size:.82rem;color:#5A2030;line-height:1.9;font-weight:300;">${f.r}</div>
+    </div>`).join('');
+}
+function toggleFaq(i){
+  const body=document.getElementById('faq-body-'+i), icon=document.getElementById('faq-icon-'+i);
+  const open = body.style.display==='block';
+  body.style.display=open?'none':'block';
+  icon.textContent=open?'+':'−';
+}
+function openPage(key){
+  const id = pages[key];
+  if(!id) return;
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+  if(key==='boutique') renderBoutique('all');
+  if(key==='faq') renderFaq();
+}
+function closePage(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+function updateBoutiqueFilters(btn){
+  document.querySelectorAll('#pageBoutique .cat-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function renderBoutique(cat){
+  const filtered = cat==='all' ? P : P.filter(p=>p.cat===cat);
+  const countEl = document.getElementById('boutiqueCount');
+  if(countEl) countEl.textContent = filtered.length + ' pièce'+(filtered.length>1?'s':'');
+  document.getElementById('boutiqueGrid').innerHTML = filtered.map(p=>`
+    <div class="pc">
+      <div class="pc-img">
+        ${p.badge?B[p.badge]:''}
+        <div class="pc-hint">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".12"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Votre photo ici</span>
+        </div>
+        <button class="pc-cta" onclick="add(${p.id})">+ Ajouter au panier</button>
+      </div>
+      <div class="pc-info">
+        <div class="pc-cat">${p.cat}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-desc">${p.desc}</div>
+        <div class="pc-bot">
+          <div class="pc-price">${p.old?`<span class="op">${p.old},00 €</span>`:''} ${p.price},00 €</div>
+          <button class="pc-plus" onclick="add(${p.id})">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function sendContact(){
+  showToast('Message envoyé ! On vous répond sous 48h ✦');
+  document.querySelectorAll('#pageContact input, #pageContact textarea').forEach(i=>i.value='');
+}
+
+// ── CATALOGUE ──
+function openCatalogue(cat){
+  document.getElementById('catalogueOv').classList.add('open');
+  document.body.style.overflow='hidden';
+  const c = cat || 'all';
+  // Mettre à jour le filtre actif
+  document.querySelectorAll('.cat-filter').forEach(b=>{
+    const bc = b.getAttribute('data-cat');
+    b.classList.toggle('active', bc===c || (!bc && c==='all'));
+  });
+  filterCat(c);
+}
+function closeCatalogue(){
+  document.getElementById('catalogueOv').classList.remove('open');
+  document.body.style.overflow='';
+}
+function filterCat(cat, btn){
+  const filtered = cat==='all' ? P : P.filter(p=>p.cat===cat);
+  document.getElementById('catCount').textContent = filtered.length + ' pièce'+(filtered.length>1?'s':'');
+  if(btn){
+    document.querySelectorAll('.cat-filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.getElementById('catGrid').innerHTML = filtered.map(p=>`
+    <div class="pc">
+      <div class="pc-img">
+        ${p.badge?B[p.badge]:''}
+        <div class="pc-hint">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".12"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Votre photo ici</span>
+        </div>
+        <button class="pc-cta" onclick="add(${p.id});showToast('&quot;${p.name}&quot; ajouté ✦')">+ Ajouter au panier</button>
+      </div>
+      <div class="pc-info">
+        <div class="pc-cat">${p.cat}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-desc">${p.desc}</div>
+        <div class="pc-bot">
+          <div class="pc-price">${p.old?`<span class="op">${p.old},00 €</span>`:''} ${p.price},00 €</div>
+          <button class="pc-plus" onclick="add(${p.id})">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// Lien "Tout voir" dans la boutique
+document.querySelectorAll('a[href="#shop"].btn-outline-dark').forEach(a=>{
+  a.addEventListener('click', function(e){ e.preventDefault(); openCatalogue(); });
+});
+
+// ── MODALES ──
+function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+function switchView(id){
+  document.getElementById('loginView').style.display='none';
+  document.getElementById('registerView').style.display='none';
+  document.getElementById(id).style.display='block';
+}
+// Fermer en cliquant dehors
+document.getElementById('loginModal').addEventListener('click', function(e){ if(e.target===this) closeModal('loginModal'); });
+document.getElementById('cartOv').addEventListener('click', function(e){ if(e.target===this) toggleCart(); });
+
+// Bouton connexion nav
+document.querySelector('.nav-login').addEventListener('click', function(){ switchView('loginView'); openModal('loginModal'); });
+
+function doLogin(){
+  const email = document.getElementById('loginEmail').value;
+  if(!email){ showToast('Veuillez saisir votre email'); return; }
+  closeModal('loginModal');
+  showToast('Connexion réussie ✦');
+}
+function doRegister(){
+  const name = document.getElementById('regName').value;
+  const email = document.getElementById('regEmail').value;
+  if(!name||!email){ showToast('Veuillez remplir tous les champs'); return; }
+  closeModal('loginModal');
+  showToast('Compte créé avec succès ✦ Bienvenue '+name+' !');
+}
+
+// ── PRODUITS ──
+const P=[
+  {id:1,name:"Collier Chaîne Dorée",    cat:"Colliers",          price:14,old:null,desc:"Chaîne fine dorée avec pendentif goutte. Très tendance.",     badge:"n"},
+  {id:2,name:"Bague Chunky Argent",     cat:"Bagues",            price:9, old:14,  desc:"Bague épaisse effet martelé, look minimaliste chic.",          badge:"s"},
+  {id:3,name:"Boucles Créoles XL",      cat:"Boucles d'oreilles",price:11,old:null,desc:"Créoles oversize dorées, le must-have du moment.",            badge:"b"},
+  {id:4,name:"Bracelet Perles Miel",    cat:"Bracelets",         price:8, old:null,desc:"Perles naturelles tons chauds, réglable.",                    badge:null},
+  {id:5,name:"Collier Croix Délicate",  cat:"Colliers",          price:12,old:null,desc:"Pendentif croix dorée sur chaîne fine — discret.",            badge:"n"},
+  {id:6,name:"Bague Gemme Rose",        cat:"Bagues",            price:13,old:null,desc:"Pierre résine rose, bague ajustable et légère.",              badge:null},
+];
+const B={n:`<span class="pc-bdg bn">Nouveau</span>`,s:``,b:`<span class="pc-bdg bb">Best-seller</span>`};
+function render(){
+  document.getElementById('pgrid').innerHTML=P.map(p=>`
+    <div class="pc">
+      <div class="pc-img">
+        ${p.badge?B[p.badge]:''}
+        <div class="pc-hint">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".12"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Votre photo ici</span>
+        </div>
+        <button class="pc-cta" onclick="add(${p.id})">+ Ajouter au panier</button>
+      </div>
+      <div class="pc-info">
+        <div class="pc-cat">${p.cat}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-desc">${p.desc}</div>
+        <div class="pc-bot">
+          <div class="pc-price">${p.old?`<span class="op">${p.old},00 €</span>`:''} ${p.price},00 €</div>
+          <button class="pc-plus" onclick="add(${p.id})">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ── PANIER ──
+let cart=[];
+function add(id){
+  const p=P.find(x=>x.id===id), e=cart.find(x=>x.id===id);
+  e?e.qty++:cart.push({...p,qty:1});
+  upd();
+  showToast('"'+p.name+'" ajouté ✦');
+}
+function rm(id){ cart=cart.filter(x=>x.id!==id); upd(); }
+function upd(){
+  document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);
+  const tot=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cartTot').textContent=tot.toFixed(2).replace('.',',')+' €';
+  const b=document.getElementById('cartBody'), f=document.getElementById('cartFt');
+  if(!cart.length){ b.innerHTML='<div class="cart-void">Votre panier est vide.</div>'; f.style.display='none'; return; }
+  f.style.display='block';
+  b.innerHTML=cart.map(i=>`<div class="ci"><div class="ci-img"></div><div class="ci-info"><div class="ci-name">${i.name}</div><div class="ci-price">${i.qty} × ${i.price},00 €</div></div><button class="ci-rm" onclick="rm(${i.id})">✕</button></div>`).join('');
+}
+function toggleCart(){ document.getElementById('cartOv').classList.toggle('open'); }
+function closeCart(e){ if(e.target===document.getElementById('cartOv')) toggleCart(); }
+
+// ── TOAST ──
+function showToast(m){
+  const t=document.getElementById('toast');
+  t.textContent=m; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ── NEWSLETTER ──
+function nlSub(e){
+  e.preventDefault();
+  const consent = document.getElementById('nlConsent');
+  if(consent && !consent.checked){ sho
