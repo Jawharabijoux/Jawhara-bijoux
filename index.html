@@ -1514,4 +1514,105 @@ function showToast(m){
 function nlSub(e){
   e.preventDefault();
   const consent = document.getElementById('nlConsent');
-  if(consent && !consent.checked){ sho
+  if(consent && !consent.checked){ showToast('Veuillez accepter la politique de confidentialité');
+    return;
+  }
+  const email = document.getElementById('nlEmail')?.value;
+  if(!email){ showToast('Veuillez saisir votre email'); return; }
+  showToast('Inscription confirmée ✦ Bienvenue dans la communauté !');
+  document.getElementById('nlEmail').value='';
+  if(consent) consent.checked=false;
+}
+
+// ── CATALOGUE ──
+function openCatalogue(cat){
+  document.getElementById('catalogueOv').classList.add('open');
+  document.body.style.overflow='hidden';
+  const c = cat || 'all';
+  document.querySelectorAll('.cat-filter').forEach(b=>{
+    const bc = b.getAttribute('data-cat');
+    b.classList.toggle('active', bc===c || (!bc && c==='all'));
+  });
+  filterCat(c);
+}
+function closeCatalogue(){
+  document.getElementById('catalogueOv').classList.remove('open');
+  document.body.style.overflow='';
+}
+function filterCat(cat, btn){
+  const filtered = cat==='all' ? P : P.filter(p=>p.cat===cat);
+  document.getElementById('catCount').textContent = filtered.length + ' pièce'+(filtered.length>1?'s':'');
+  if(btn){
+    document.querySelectorAll('.cat-filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.getElementById('catGrid').innerHTML = filtered.map(p=>`
+    <div class="pc">
+      <div class="pc-img">
+        ${p.badge?B[p.badge]:''}
+        <div class="pc-hint">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".12"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Votre photo ici</span>
+        </div>
+        <button class="pc-cta" onclick="add(${p.id});showToast('&quot;${p.name}&quot; ajouté ✦')">+ Ajouter au panier</button>
+      </div>
+      <div class="pc-info">
+        <div class="pc-cat">${p.cat}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-desc">${p.desc}</div>
+        <div class="pc-bot">
+          <div class="pc-price">${p.old?`<span class="op">${p.old},00 €</span>`:''} ${p.price},00 €</div>
+          <button class="pc-plus" onclick="add(${p.id})">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ── MODALES ──
+function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+function switchView(id){
+  document.getElementById('loginView').style.display='none';
+  document.getElementById('registerView').style.display='none';
+  document.getElementById(id).style.display='block';
+}
+document.getElementById('loginModal').addEventListener('click', function(e){ if(e.target===this) closeModal('loginModal'); });
+document.getElementById('cartOv').addEventListener('click', function(e){ if(e.target===this) toggleCart(); });
+document.querySelector('.nav-login').addEventListener('click', function(){ switchView('loginView'); openModal('loginModal'); });
+
+function doLogin(){
+  const email = document.getElementById('loginEmail').value;
+  if(!email){ showToast('Veuillez saisir votre email'); return; }
+  closeModal('loginModal');
+  showToast('Connexion réussie ✦');
+}
+function doRegister(){
+  const name = document.getElementById('regName').value;
+  const email = document.getElementById('regEmail').value;
+  if(!name||!email){ showToast('Veuillez remplir tous les champs'); return; }
+  closeModal('loginModal');
+  showToast('Compte créé avec succès ✦ Bienvenue '+name+' !');
+}
+</script>
+
+<style>
+#cs{position:fixed;inset:0;background:#FFF0F7;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;}
+#cs-logo{font-family:'Cormorant Garamond',serif;font-size:3.5rem;letter-spacing:16px;font-weight:300;color:#1A0818;}
+#cs-line{width:220px;height:1px;background:#FFB3D1;}
+#cs-sub{font-family:'DM Sans',sans-serif;font-size:.55rem;letter-spacing:8px;font-weight:500;color:#884060;}
+#cs-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:#884060;margin-top:1.5rem;}
+</style>
+<script>
+/* COMING SOON — true=visible / false=site normal */
+var CS=true;
+window.addEventListener('DOMContentLoaded',function(){
+  if(!CS)return;
+  var e=document.createElement('div');
+  e.id='cs';
+  e.innerHTML='<div id="cs-logo">JĀWHARA</div><div id="cs-line"></div><div id="cs-sub">— bijoux —</div><div id="cs-msg">Bientôt disponible ✦</div>';
+  document.body.appendChild(e);
+});
+</script>
+</body>
+</html>
+                                  
